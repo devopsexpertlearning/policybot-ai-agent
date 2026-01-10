@@ -146,7 +146,7 @@ graph TB
 | **LLM** | Google Gemini 1.5-flash | Azure OpenAI GPT-4 |
 | **Speed** | Fast (optimized for speed) | Balanced |
 | **Cost** | Free tier | Pay-per-use |
-| **Embeddings** | Gemini embedding-001 (768-dim) | text-embedding-ada-002 (1536-dim) |
+| **Embeddings** | Gemini embedding-001 (3072-dim) | text-embedding-ada-002 (1536-dim) |
 | **Vector Store** | FAISS (local file) | Azure AI Search (cloud) |
 | **Setup** | Simple API key | Azure resources required |
 
@@ -170,7 +170,7 @@ graph TB
 
 **Embedding Generator**
 - Converts text to numerical vectors
-- **Gemini**: 768-dimensional vectors
+- **Gemini**: 3072-dimensional vectors
 - **Azure**: 1536-dimensional vectors
 - Batch processing for efficiency
 
@@ -219,7 +219,12 @@ graph TB
 
 ```
 data/
-├── documents/              # Source policy DocumentsI'll complete the documentation files. Let me continue creating the architecture documentation and other required docs:
+├── documents/              # Source policy Documents (PDF/Text)
+└── vector_stores/          # Vector store persistence
+    └── faiss_index/        # Local FAISS index files
+```
 
-```python
-
+### Data Security
+- **Local**: Documents processed in-memory, embeddings stored locally.
+- **Production**: Documents uploaded to Azure Search (encrypted at rest), embeddings managed by Azure OpenAI.
+```

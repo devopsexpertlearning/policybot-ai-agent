@@ -4,7 +4,7 @@ Session-based memory management for conversations.
 
 import uuid
 from typing import Dict, List, Optional
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import asyncio
 import logging
 
@@ -36,8 +36,8 @@ class ConversationMemory:
         
         self.sessions[session_id] = {
             "messages": [],
-            "created_at": datetime.utcnow(),
-            "last_activity": datetime.utcnow(),
+            "created_at": datetime.now(timezone.utc),
+            "last_activity": datetime.now(timezone.utc),
             "metadata": {}
         }
         
@@ -66,12 +66,12 @@ class ConversationMemory:
         message = {
             "role": role,
             "content": content,
-            "timestamp": datetime.utcnow(),
+            "timestamp": datetime.now(timezone.utc),
             "sources": sources
         }
         
         self.sessions[session_id]["messages"].append(message)
-        self.sessions[session_id]["last_activity"] = datetime.utcnow()
+        self.sessions[session_id]["last_activity"] = datetime.now(timezone.utc)
         
         # Trim history if too long
         max_history = settings.max_conversation_history
@@ -167,7 +167,7 @@ class ConversationMemory:
             Number of sessions cleaned up
         """
         timeout = timedelta(seconds=settings.session_timeout)
-        now = datetime.utcnow()
+        now = datetime.now(timezone.utc)
         
         expired_sessions = [
             session_id
@@ -199,7 +199,7 @@ class ConversationMemory:
             ),
             "active_sessions": len([
                 s for s in self.sessions.values()
-                if datetime.utcnow() - s["last_activity"] < timedelta(minutes=5)
+                if datetime.now(timezone.utc) - s["last_activity"] < timedelta(minutes=5)
             ])
         }
 

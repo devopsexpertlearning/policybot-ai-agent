@@ -3,7 +3,7 @@ Pydantic models for API requests and responses.
 """
 
 from typing import List, Optional, Dict, Any
-from datetime import datetime
+from datetime import datetime, timezone
 from pydantic import BaseModel, Field
 
 
@@ -72,7 +72,7 @@ class HealthResponse(BaseModel):
     environment: str = Field(..., description="Current environment")
     llm_provider: str = Field(..., description="LLM provider (groq or azure)")
     vector_store: str = Field(..., description="Vector store (faiss or azure_search)")
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 
 class ErrorResponse(BaseModel):
@@ -80,7 +80,7 @@ class ErrorResponse(BaseModel):
     
     error: str = Field(..., description="Error message")
     detail: Optional[str] = Field(None, description="Detailed error information")
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 
 class SessionInfo(BaseModel):
@@ -97,5 +97,5 @@ class ConversationMessage(BaseModel):
     
     role: str = Field(..., description="Role: user or assistant")
     content: str = Field(..., description="Message content")
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     sources: Optional[List[str]] = Field(default=None, description="Sources used")

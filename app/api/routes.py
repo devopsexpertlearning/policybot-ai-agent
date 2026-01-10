@@ -120,7 +120,7 @@ async def health_check() -> HealthResponse:
     return HealthResponse(
         status="healthy",
         environment=settings.environment,
-        llm_provider="groq" if settings.use_groq else "azure",
+        llm_provider="gemini" if settings.use_gemini else "azure",
         vector_store="faiss" if settings.use_faiss else "azure_search"
     )
 

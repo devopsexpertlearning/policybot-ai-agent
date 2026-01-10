@@ -5,6 +5,10 @@ testpaths = ["tests"]
 python_files = "test_*.py"
 python_classes = "Test*"
 python_functions = "test_*"
+filterwarnings = [
+    "ignore::DeprecationWarning:google._upb._message",
+    "ignore::DeprecationWarning:importlib._bootstrap",
+]
 
 [tool.black]
 line-length = 100

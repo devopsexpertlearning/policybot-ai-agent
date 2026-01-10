@@ -32,7 +32,7 @@ async def lifespan(app: FastAPI):
     # Startup
     logger.info("Starting AI Agent API...")
     logger.info(f"Environment: {settings.environment}")
-    logger.info(f"LLM Provider: {'Groq' if settings.use_groq else 'Azure OpenAI'}")
+    logger.info(f"LLM Provider: {'Google Gemini' if settings.use_gemini else 'Azure OpenAI'}")
     logger.info(f"Vector Store: {'FAISS' if settings.use_faiss else 'Azure AI Search'}")
     
     # Start memory cleanup task
@@ -105,7 +105,7 @@ async def root():
         "name": "AI Agent with RAG",
         "version": "1.0.0",
         "environment": settings.environment,
-        "provider": "groq" if settings.use_groq else "azure",
+        "provider": "gemini" if settings.use_gemini else "azure",
         "vector_store": "faiss" if settings.use_faiss else "azure_search",
         "endpoints": {
             "ask": "/ask",

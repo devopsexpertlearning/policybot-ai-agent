@@ -1,0 +1,61 @@
+# Production Environment Configuration
+# Copy this file to terraform.tfvars and customize values
+
+# General Settings
+resource_group_name = "policybot-ai-agent-rg"
+location           = "eastus"
+
+tags = {
+  Project     = "PolicyBot AI Agent"
+  Environment = "Production"
+  ManagedBy   = "Terraform"
+  Owner       = "DevOps Team"
+}
+
+# Container Registry
+acr_name = "policybotregistry"  # Must be globally unique
+acr_sku  = "Standard"
+
+# App Service
+app_service_plan_name = "policybot-ai-agent-plan"
+app_service_plan_sku  = "P1v2"  # Production: P1v2, P2v2, or P3v2
+app_service_name      = "policybot-ai-agent-app"  # Must be globally unique
+app_service_always_on = true
+
+# CORS Configuration
+cors_allowed_origins = [
+  "https://yourdomain.com",
+  "https://www.yourdomain.com"
+]
+
+# Logging
+log_level = "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+# Azure OpenAI
+openai_account_name              = "policybot-openai"  # Must be globally unique
+openai_location                  = "eastus"  # Check availability in your region
+openai_sku                       = "S0"
+openai_network_acls_default_action = "Allow"  # Change to "Deny" for production with IP whitelist
+openai_allowed_ips               = []  # Add your IPs: ["1.2.3.4", "5.6.7.8"]
+
+# OpenAI Deployments
+openai_deployment_name           = "gpt-4"
+openai_model_name                = "gpt-4"
+openai_model_version             = "1106-Preview"
+openai_deployment_capacity       = 10  # Tokens per minute (in thousands)
+
+openai_embedding_deployment_name = "text-embedding-ada-002"
+openai_embedding_model_name      = "text-embedding-ada-002"
+openai_embedding_model_version   = "2"
+openai_embedding_capacity        = 10
+
+# Azure AI Search
+search_service_name         = "policybot-search"  # Must be globally unique
+search_service_sku          = "standard"  # free, basic, standard, standard2, standard3
+search_replica_count        = 1  # 1-12 (for high availability, use 2+)
+search_partition_count      = 1  # 1, 2, 3, 4, 6, or 12
+search_public_access_enabled = true
+search_index_name           = "company-policies"
+
+# Monitoring
+log_retention_days = 30  # 30-730 days

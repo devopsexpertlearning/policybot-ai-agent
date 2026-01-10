@@ -1,0 +1,162 @@
+# Quick Setup Guide
+
+## Prerequisites
+- Python 3.11+
+- Google Gemini API key (free at https://makersuite.google.com/app/apikey)
+
+## 5-Minute Local Setup
+
+### Step 1: Setup Environment
+```powershell
+# Navigate to project
+cd policybot-ai-agent
+
+# Create and activate virtual environment
+python -m venv venv
+venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Step 2: Configure API Key
+```powershell
+# Copy environment template
+copy .env.example .env
+
+# Edit .env file and add your Google Gemini API key:
+# ENVIRONMENT=local
+# GOOGLE_GEMINI_API_KEY=your_actual_gemini_api_key_here
+```
+
+**Get Free Key**: https://makersuite.google.com/app/apikey
+
+### Step 3: Initialize Vector Store
+```powershell
+# Process documents and create embeddings
+python scripts\setup_vectorstore.py
+```
+
+Expected output:
+```
+🚀 Starting vector store setup...
+Environment: local
+Vector store type: FAISS
+✅ Processed 342 chunks from documents
+✅ Generated 342 embeddings
+✅ FAISS index saved
+```
+
+### Step 4: Run the Application
+```powershell
+# Start FastAPI server
+python -m app.main
+```
+
+Server runs at http://localhost:8000
+
+### Step 5: Test the Agent
+
+**Option A: Interactive Testing** (Recommended)
+```powershell
+# Open a new terminal
+venv\Scripts\activate
+python scripts\test_agent.py
+```
+
+**Option B: API Testing**
+```bash
+curl -X POST http://localhost:8000/ask \
+  -H "Content-Type: application/json" \
+  -d "{\"query\":\"What is the leave policy?\"}"
+```
+
+**Option C: Browser**
+Visit http://localhost:8000/docs for interactive API documentation
+
+---
+
+## Sample Questions to Ask
+
+**Policy Questions** (uses RAG):
+- "How many vacation days do I get?"
+- "What is the parental leave policy?"
+- "What are the password requirements?"
+- "What benefits does the company offer?"
+- "How do I request time off?"
+
+**General Questions** (direct LLM):
+- "What is artificial intelligence?"
+- "Explain machine learning in simple terms"
+- "What is the capital of France?"
+
+---
+
+## Docker Alternative
+
+If you prefer Docker:
+
+```bash
+cd deployment
+docker-compose up --build
+```
+
+Then visit http://localhost:8000
+
+---
+
+## Troubleshooting
+
+**Issue**: "GOOGLE_GEMINI_API_KEY is required"
+- **Solution**: Make sure you've added your API key to the `.env` file
+
+**Issue**: "No module named 'app'"
+- **Solution**: Make sure you're in the project root directory and virtual environment is activated
+
+**Issue**: "Index is empty" when querying
+- **Solution**: Run `python scripts\setup_vectorstore.py` first
+
+**Issue**: Import errors
+- **Solution**: Ensure virtual environment is activated and dependencies installed:
+  ```powershell
+  venv\Scripts\activate
+  pip install -r requirements.txt
+  ```
+
+---
+
+## Next Steps
+
+- ✅ **Local Setup Complete!**
+- 📖 Check [README.md](README.md) for full documentation
+- 🏗️ See [docs/architecture.md](docs/architecture.md) for system design
+- 🚀 View [docs/deployment.md](docs/deployment.md) for Azure deployment
+
+---
+
+## API Endpoints
+
+Once running:
+- **Interactive Docs (Swagger)**: http://localhost:8000/docs
+- **Alternative Docs (ReDoc)**: http://localhost:8000/redoc
+- **Health Check**: http://localhost:8000/health
+- **Stats**: http://localhost:8000/stats
+
+---
+
+## Quick Reference
+
+```powershell
+# Complete setup in one go:
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+copy .env.example .env
+# (Edit .env with your GOOGLE_GEMINI_API_KEY)
+python scripts\setup_vectorstore.py
+python -m app.main
+```
+
+That's it! You now have a production-ready AI agent running locally.
+
+**Need help?** See [README.md](README.md) or [docs/](docs/) folder.

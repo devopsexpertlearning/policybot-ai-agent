@@ -1,0 +1,329 @@
+INFORMATION TECHNOLOGY POLICY
+TechCorp Solutions
+Version 3.1 - January 2026
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+
+1. Purpose and Scope
+2. Acceptable Use Policy
+3. Security Requirements
+4. Data Protection and Privacy
+5. Password Management
+6. Email and Communication
+7. Internet Usage
+8. Mobile Devices
+9. Remote Access
+10. Incident Reporting
+11. Compliance and Violations
+
+================================================================================
+1. PURPOSE AND SCOPE
+================================================================================
+
+This IT Policy establishes guidelines for the appropriate use of TechCorp's
+information technology resources, including computers, networks, software,
+data, and communication systems.
+
+Scope: This policy applies to all employees, contractors, consultants, and
+third parties with access to TechCorp IT resources.
+
+================================================================================
+2. ACCEPTABLE USE POLICY
+================================================================================
+
+2.1 Permitted Use
+IT resources are provided for business purposes. Limited personal use is
+permitted if it:
+- Does not interfere with work responsibilities
+- Does not consume significant resources
+- Complies with all company policies
+- Does not violate any laws or regulations
+
+2.2 Prohibited Activities
+The following activities are strictly prohibited:
+- Accessing, storing, or transmitting illegal content
+- Unauthorized access to systems or data
+- Installing unauthorized software
+- Sharing login credentials
+- Using IT resources for commercial gain outside of job duties
+- Circumventing security measures
+- Harassment, discrimination, or hostile communications
+- Downloading or distributing pirated software or media
+
+================================================================================
+3. SECURITY REQUIREMENTS
+================================================================================
+
+3.1 Physical Security
+- Lock workstations when leaving your desk (Windows + L)
+- Never leave devices unattended in public places
+- Secure laptops in locked drawers or use cable locks
+- Immediately report lost or stolen devices
+
+3.2 Software Security
+- Keep all software up-to-date with security patches
+- Use only approved, licensed software
+- Run antivirus scans weekly (automatic scans are configured)
+- Do not disable security software
+
+3.3 Network Security
+- Connect only to approved networks
+- Use VPN for all remote connections
+- Do not create unauthorized wireless networks
+- Report suspicious network activity
+
+================================================================================
+4. DATA PROTECTION AND PRIVACY
+================================================================================
+
+4.1 Data Classification
+TechCorp classifies data into three categories:
+
+PUBLIC: Information intended for public disclosure
+- Marketing materials
+- Published reports
+- Public website content
+
+INTERNAL: Information for internal use only
+- Internal memos
+- General business documents
+- Non-sensitive communications
+
+CONFIDENTIAL: Sensitive information requiring protection
+- Customer data
+- Financial information
+- Employee records
+- Proprietary business information
+- Source code and intellectual property
+
+4.2 Data Handling Requirements
+
+Confidential Data must be:
+- Encrypted when stored or transmitted
+- Accessed only by authorized personnel
+- Not shared with unauthorized parties
+- Properly disposed of (shredding, secure deletion)
+- Protected with access controls
+
+4.3 Personal Data
+Comply with all privacy regulations (GDPR, CCPA, etc.) when handling personal
+information. Collect, process, and store personal data only as necessary for
+business purposes.
+
+4.4 Data Retention
+- Follow data retention schedules by data type
+- Delete data when no longer needed
+- Archive important information according to policy
+- Never delete data subject to legal hold
+
+================================================================================
+5. PASSWORD MANAGEMENT
+================================================================================
+
+5.1 Password Requirements
+All passwords must meet these minimum requirements:
+- At least 12 characters long
+- Include uppercase and lowercase letters
+- Include numbers
+- Include special characters
+- No dictionary words or common patterns
+- No personal information (names, birthdays, etc.)
+
+5.2 Password Practices
+- Change passwords every 90 days
+- Never reuse previous passwords
+- Use unique passwords for each system
+- Never share passwords with anyone
+- Do not write passwords down or store in plain text
+- Use the company password manager for secure storage
+
+5.3 Multi-Factor Authentication (MFA)
+MFA is required for:
+- Email accounts
+- VPN access
+- Cloud services
+- Administrative accounts
+- All external-facing systems
+
+================================================================================
+6. EMAIL AND COMMUNICATION
+================================================================================
+
+6.1 Email Usage
+- Use professional language in all communications
+- Include clear subject lines
+- Do not send confidential information without encryption
+- Be cautious with attachments from unknown senders
+- Check recipient addresses before sending
+
+6.2 Phishing Awareness
+Be alert for phishing attempts:
+- Unexpected requests for credentials or personal information
+- Suspicious links or attachments
+- Urgent or threatening language
+- Sender addresses that look suspicious
+If you suspect phishing, report to IT immediately: security@techcorp.com
+
+6.3 Email Retention
+- Email is company property and may be monitored
+- Important emails should be saved to appropriate folders
+- Delete unnecessary emails regularly
+- Do not use personal email for company business
+
+================================================================================
+7. INTERNET USAGE
+================================================================================
+
+7.1 Appropriate Use
+Internet access is provided for business purposes. Reasonable personal use
+is permitted during breaks.
+
+7.2 Prohibited Content
+Do not access websites containing:
+- Illegal content
+- Pornography or adult material
+- Gambling
+- Hate speech
+- Pirated software or media
+- Malware or hacking tools
+
+7.3 Social Media
+- Be professional when representing the company online
+- Do not share confidential information
+- Clarify that personal opinions are your own
+- Follow the social media policy in the Employee Handbook
+
+7.4 Downloads
+- Download files only from trusted sources
+- Scan all downloads with antivirus software
+- Do not download executable files from unknown sources
+- Request IT approval for new software installations
+
+================================================================================
+8. MOBILE DEVICES
+================================================================================
+
+8.1 Company-Owned Devices
+- Use provided mobile device management (MDM) software
+- Keep devices updated with latest OS and security patches
+- Enable device encryption
+- Set up device lock with PIN/biometric authentication
+- Report lost or stolen devices immediately
+
+8.2 Bring Your Own Device (BYOD)
+If approved for BYOD:
+- Install required MDM software
+- Separate work and personal data
+- Allow remote wipe capability for company data
+- Use strong device security
+- Follow all security policies
+
+8.3 App Installation
+- Only install approved business apps
+- Download apps only from official app stores
+- Review app permissions before installing
+- Regularly update all apps
+
+================================================================================
+9. REMOTE ACCESS
+================================================================================
+
+9.1 VPN Requirements
+When working remotely:
+- Always connect via company VPN
+- Use only approved VPN clients
+- Never share VPN credentials
+- Disconnect VPN when not in use
+
+9.2 Remote Work Security
+- Ensure home network is secured with WPA2/WPA3 encryption
+- Use a private workspace away from public view
+- Lock your device when stepping away
+- Do not allow others to use company devices
+- Maintain confidentiality during video calls
+
+9.3 Public Wi-Fi
+- Avoid public Wi-Fi when possible
+- Always use VPN on public networks
+- Never access confidential information on public Wi-Fi
+- Disable automatic Wi-Fi connection
+
+================================================================================
+10. INCIDENT REPORTING
+================================================================================
+
+10.1 Security Incidents
+Report immediately:
+- Lost or stolen devices
+- Suspected malware or virus infections
+- Phishing attempts
+- Unauthorized access attempts
+- Data breaches or suspected breaches
+- Unusual system behavior
+
+10.2 Reporting Procedures
+Contact IT Security:
+- Email: security@techcorp.com
+- Phone: x8888 (internal) or 555-0199 (external)
+- Available 24/7 for urgent security issues
+
+Do not attempt to resolve security incidents yourself.
+
+10.3 Response Time
+- Critical incidents: Immediate response
+- High priority: Within 2 hours
+- Medium priority: Within 4 hours
+- Low priority: Within 24 hours
+
+================================================================================11. COMPLIANCE AND VIOLATIONS
+================================================================================
+
+11.1 Monitoring
+TechCorp reserves the right to monitor all use of IT resources, including:
+- Email communications
+- Internet browsing
+- File access
+- System logs
+- Network traffic
+
+There is no expectation of privacy when using company IT resources.
+
+11.2 Compliance Audits
+Regular audits are conducted to ensure policy compliance. Employees must
+cooperate fully with audit requests.
+
+11.3 Violations
+Policy violations may result in:
+- Warning
+- Mandatory training
+- Suspension of IT privileges
+- Disciplinary action up to and including termination
+- Legal action for serious violations
+
+11.4 Reporting Violations
+Report policy violations to:
+- Your manager
+- IT Department
+- Human Resources
+- Ethics Hotline: 1-800-555-0123
+
+================================================================================
+12. ACKNOWLEDGMENT
+================================================================================
+
+All users must complete IT security awareness training annually and acknowledge
+understanding of this policy.
+
+Questions about this policy should be directed to:
+IT Department: it-support@techcorp.com or extension 8600
+
+This policy is subject to change. Users will be notified of significant updates.
+
+================================================================================
+Last Updated: January 2026
+Next Review: January 2027
+Owner: Chief Information Security Officer
+© TechCorp Solutions. All rights reserved.
+================================================================================

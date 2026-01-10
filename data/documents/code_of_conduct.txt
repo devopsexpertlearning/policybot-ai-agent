@@ -1,0 +1,375 @@
+CODE OF CONDUCT
+TechCorp Solutions
+Version 2.0 - January 2026
+
+================================================================================
+OUR COMMITMENT
+================================================================================
+
+TechCorp is committed to maintaining the highest standards of business ethics
+and professional conduct. This Code of Conduct outlines the principles and
+standards that guide our actions and decisions.
+
+All employees, contractors, and representatives of TechCorp are expected to
+read, understand, and comply with this Code of Conduct.
+
+================================================================================
+1. CORE PRINCIPLES
+================================================================================
+
+1.1 Integrity
+We conduct business honestly and ethically in all circumstances. We keep our
+commitments and admit our mistakes.
+
+1.2 Respect
+We treat everyone with dignity and respect, regardless of position, background,
+or personal characteristics.
+
+1.3 Responsibility
+We take ownership of our actions and their consequences. We do what we say we
+will do.
+
+1.4 Excellence
+We strive for the highest quality in our work and continuously seek to improve.
+
+1.5 Fairness
+We make decisions based on merit and facts, not favoritism or bias.
+
+================================================================================
+2. WORKPLACE CONDUCT
+================================================================================
+
+2.1 Professional Behavior
+All employees must:
+- Treat colleagues, clients, and partners with respect and courtesy
+- Communicate professionally in all interactions
+- Collaborate effectively with team members
+- Maintain a positive and productive work environment
+- Dress appropriately for the workplace and client meetings
+
+2.2 Harassment and Discrimination
+TechCorp has zero tolerance for harassment or discrimination.
+
+Prohibited Conduct:
+- Sexual harassment of any kind
+- Discrimination based on race, color, religion, sex, national origin, age,
+  disability, genetic information, sexual orientation, gender identity, or
+  any other protected characteristic
+- Bullying, intimidation, or threatening behavior
+- Creating a hostile work environment
+- Retaliation against those who report violations
+
+Employees who experience or witness harassment must report it immediately.
+
+2.3 Substance Abuse
+- Illegal drug use is strictly prohibited
+- Being under the influence at work is cause for disciplinary action
+- Alcohol may be consumed only at approved company events
+- Employees must be fit for duty at all times
+
+2.4 Violence and Threats
+- Threats of violence will not be tolerated
+- Possession of weapons on company property is prohibited
+- Report any concerns about workplace violence immediately
+
+2.5 Workplace Romance
+- Romantic relationships between employees must be disclosed if they create
+  actual or perceived conflicts of interest
+- Manager-subordinate relationships require disclosure and may require
+  organizational changes
+- Both parties must complete disclosure form
+
+================================================================================
+3. CONFLICTS OF INTEREST
+================================================================================
+
+3.1 Definition
+A conflict of interest arises when personal interests interfere, or appear to
+interfere, with company interests.
+
+3.2 Common Conflicts
+Examples of potential conflicts:
+- Outside employment with competitors or clients
+- Financial interests in competing or partner companies
+- Business relationships with family members
+- Accepting gifts or entertainment from vendors
+- Using company resources for personal business
+- Hiring or supervising family members
+
+3.3 Disclosure Requirements
+Employees must disclose any actual or potential conflicts of interest to their
+manager and HR. Failure to disclose may result in disciplinary action.
+
+3.4 Outside Employment
+- Outside employment must not interfere with job performance
+- Must not compete with TechCorp's business
+- Must not use TechCorp resources, information, or time
+- Director-level and above require approval for outside employment
+
+================================================================================
+4. CONFIDENTIALITY AND DATA PROTECTION
+================================================================================
+
+4.1 Confidential Information
+Employees must protect confidential company information, including:
+- Trade secrets and proprietary information
+- Business strategies and plans
+- Financial data
+- Customer and partner information
+- Employee personal information
+- Product and technology development
+
+4.2 Obligations
+- Use confidential information only for business purposes
+- Do not disclose to unauthorized parties
+- Protect information with appropriate security measures
+- Obligations continue after employment ends
+- Return all confidential materials upon termination
+
+4.3 Customer and Partner Data
+- Handle customer data with strictest confidentiality
+- Comply with all privacy laws and regulations
+- Use data only for authorized purposes
+- Never sell or share customer data inappropriately
+- Report any data breaches immediately
+
+================================================================================
+5. INTELLECTUAL PROPERTY
+================================================================================
+
+5.1 Company Ownership
+All work product created within the scope of employment belongs to TechCorp:
+- Software code and documentation
+- Inventions and innovations
+- Designs and creative works
+- Business processes and methods
+- Research and development
+
+5.2 Respecting Others' IP
+- Do not use others' intellectual property without proper licensing
+- Respect copyrights, patents, and trademarks
+- Use only properly licensed software
+- Never incorporate third-party code without approval
+
+5.3 Open Source
+- Follow company policies for using open source software
+- Obtain approval before using or contributing to open source projects
+- Comply with all license requirements
+
+================================================================================
+6. BUSINESS ETHICS AND COMPLIANCE
+================================================================================
+
+6.1 Legal Compliance
+Employees must comply with all applicable laws and regulations, including:
+- Anti-corruption laws (Foreign Corrupt Practices Act, UK Bribery Act)
+- Antitrust and competition laws
+- Securities laws
+- Export control laws
+- Data protection and privacy laws
+- Employment laws
+
+6.2 Anti-Bribery and Corruption
+TechCorp prohibits all forms of bribery and corruption:
+- Never offer or accept bribes, kickbacks, or improper payments
+- Do not make facilitation payments
+- Exercise caution with gifts and entertainment
+- Maintain accurate books and records
+- Report any suspected corruption
+
+6.3 Gifts and Entertainment
+
+Giving Gifts:
+- Must be legal, modest in value (<$100), and not create obligation
+- Never give cash or cash equivalents
+- Follow recipient organization's policies
+- Obtain approval for gifts over $100
+
+Receiving Gifts:
+- May accept modest gifts in normal business context
+- Decline anything that could create obligation or appearance of impropriety
+- Never accept cash or cash equivalents
+- Gifts over $100 must be disclosed to manager
+
+Entertainment:
+- Business meals and events are acceptable if reasonable and infrequent
+- Attendance must have clear business purpose
+- Avoid lavish or excessive entertainment
+- Never attend events that could embarrass the company
+
+6.4 Political Activities
+- Political activities must be on personal time
+- Do not use company resources for political purposes
+- Do not imply company endorsement of candidates or positions
+- Company may engage in lobbying in compliance with laws
+
+6.5 Charitable Contributions
+- Company supports charitable giving through approved programs
+- Personal charitable work is encouraged on personal time
+- Do not pressure others to support particular causes
+- Do not use company resources without approval
+
+================================================================================
+7. FINANCIAL INTEGRITY
+================================================================================
+
+7.1 Accurate Records
+All business records must be:
+- Accurate and complete
+- Created in timely manner
+- Properly maintained and retained
+- Available for authorized review
+
+7.2 Expense Reporting
+- Submit only accurate expense reports
+- Include required receipts and documentation
+- Obtain proper approvals
+- Reimburse company for personal expenses charged in error
+
+7.3 Time Reporting
+- Accurately report all time worked
+- Record PTO and leave correctly
+- Never falsify time records
+- Managers must review and approve timesheets promptly
+
+7.4 Financial Reporting
+- Maintain accurate financial books and records
+- Never create false or misleading entries
+- Comply with accounting standards and controls
+- Cooperate with internal and external audits
+
+================================================================================
+8. COMPANY RESOURCES
+================================================================================
+
+8.1 Proper Use
+Company resources should be used primarily for business purposes:
+- Computer systems and software
+- Office equipment and supplies
+- Company vehicles
+- Facilities and property
+- Intellectual property
+
+Limited personal use is acceptable if it:
+- Does not interfere with work
+- Does not incur significant cost
+- Does not violate policies
+- Is not for personal business gain
+
+8.2 Protection of Assets
+- Take reasonable steps to protect company property
+- Report loss, theft, or damage
+- Do not waste or misuse resources
+- Secure company information and equipment
+
+8.3 Social Media and Communications
+- Do not disclose confidential information
+- Be respectful and professional
+- Clarify personal opinions are your own
+- Do not claim to represent company without authorization
+- Follow IT and social media policies
+
+================================================================================
+9. HEALTH, SAFETY, AND ENVIRONMENT
+================================================================================
+
+9.1 Workplace Safety
+- Follow all safety rules and procedures
+- Report hazards and unsafe conditions
+- Use required safety equipment
+- Participate in safety training
+- Never work under influence of drugs or alcohol
+
+9.2 Environmental Responsibility
+- Comply with environmental laws and regulations
+- Conserve resources and minimize waste
+- Recycle where possible
+- Report environmental concerns
+
+================================================================================
+10. REPORTING AND NON-RETALIATION
+================================================================================
+
+10.1 Duty to Report
+Employees must promptly report:
+- Violations of this Code of Conduct
+- Illegal or unethical behavior
+- Conflicts of interest
+- Safety or security concerns
+- Harassment or discrimination
+- Financial irregularities
+
+10.2 Reporting Channels
+Report concerns through any of these channels:
+- Direct manager
+- Human Resources (hr@techcorp.com, ext. 8500)
+- Legal Department (legal@techcorp.com)
+- Ethics Hotline: 1-800-555-0123 (anonymous)
+- Online ethics portal: ethics.techcorp.com
+
+10.3 Non-Retaliation Policy
+TechCorp prohibits retaliation against anyone who:
+- Reports concerns in good faith
+- Participates in investigations
+- Asks questions about ethical issues
+- Refuses to violate the law or this Code
+
+Retaliation is grounds for immediate termination.
+
+10.4 Investigation Process
+- All reports will be investigated promptly and thoroughly
+- Confidentiality will be maintained to extent possible
+- Employees must cooperate with investigations
+- Appropriate action will be taken based on findings
+
+================================================================================
+11. CONSEQUENCES OF VIOLATIONS
+================================================================================
+
+Violations of this Code of Conduct may result in:
+- Verbal or written warning
+- Mandatory training
+- Suspension
+- Demotion
+- Termination of employment
+- Legal action
+- Referral to law enforcement
+
+The specific consequence depends on the nature and severity of the violation.
+
+================================================================================
+12. ACKNOWLEDGMENT AND QUESTIONS
+================================================================================
+
+All employees must:
+- Read and understand this Code of Conduct
+- Complete annual ethics training
+- Sign acknowledgment form annually
+- Ask questions when unsure about proper conduct
+
+Questions about this Code should be directed to:
+- Your manager
+- Human Resources
+- Legal Department
+- Ethics Hotline
+
+When in doubt, ask. It's always better to ask than to act improperly.
+
+================================================================================
+CONCLUSION
+================================================================================
+
+This Code of Conduct represents ourcommitment to doing business the right way.
+Each of us plays a vital role in upholding these standards.
+
+Together, we build a company we can be proud of - one that succeeds through
+integrity, earns trust through transparency, and creates value through ethics.
+
+Thank you for your commitment to these principles.
+
+================================================================================
+Last Updated: January 2026
+Next Review: January 2027
+Owner: Chief Ethics and Compliance Officer
+© TechCorp Solutions. All rights reserved.
+================================================================================

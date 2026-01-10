@@ -44,7 +44,7 @@ ENV/
 logs/
 
 # Data
-data/
+#data/
 *.faiss
 *.metadata
 *.pkl

@@ -62,6 +62,29 @@ graph LR
 
 ### 5-Minute Setup
 
+### Linux / macOS
+```bash
+# 1. Clone and setup
+cd policybot-ai-agent
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+# 2. Configure (add your Gemini API key)
+cp .env.example .env
+# Edit .env: GOOGLE_GEMINI_API_KEY=your_key_here
+
+# 3. Initialize vector store
+python scripts/setup_vectorstore.py
+
+# 4. Run application
+python -m app.main
+
+# 5. Test
+python scripts/test_agent.py
+```
+
+### Windows
 ```powershell
 # 1. Clone and setup
 cd policybot-ai-agent
@@ -87,7 +110,41 @@ python scripts\test_agent.py
 
 ---
 
-## 💻 Tech Stack
+## � Use Cases & Scenarios
+
+PolicyBot is designed to solve real-world enterprise challenges. Here are key scenarios demonstrating its value:
+
+### 1. New Employee Onboarding 🎓
+**Scenario**: A new hire, Sarah, needs to understand her benefits and initial setup requirements but doesn't want to overwhelm her manager.
+- **User Query**: "When does my health insurance coverage start?"
+- **Agent Action**: Retrieves the `benefits_guide.txt` document.
+- **Response**: "According to the benefits guide, health insurance coverage begins on the first day of the month following your start date."
+- **Benefit**: Reduces "HR fatigue" and empowers new employees to self-serve information directly.
+
+### 2. HR Department Efficiency ⚡
+**Scenario**: The HR team is drowning in repetitive questions during open enrollment season.
+- **User Query**: "What is the difference between the standard and premium dental plan?"
+- **Agent Action**: Searches `benefits_guide.txt` and synthesizes a comparison.
+- **Response**: Explains the coverage limits and deductibles for both plans side-by-side.
+- **Benefit**: Frees up HR professionals to focus on complex, sensitive employee relations issues rather than FAQ answering.
+
+### 3. Compliance & Security 🔐
+**Scenario**: An employee is unsure about the rules for using personal devices for work.
+- **User Query**: "Can I check my work email on my personal phone?"
+- **Agent Action**: Consults `it_policy.txt` and `mobile_device_policy.txt`.
+- **Response**: "Yes, but you must install the MDM (Mobile Device Management) profile and enforce a 6-digit passcode as per the IT Security Policy."
+- **Benefit**: Ensures standardized, policy-compliant answers are given every time, reducing security risks.
+
+### 4. 24/7 Global Support 🌍
+**Scenario**: A remote worker in a different time zone needs immediate clarification on a leave policy for an emergency.
+- **User Query**: "What is the bereavement leave policy?"
+- **Agent Action**: Instant retrieval from `leave_policy.txt`.
+- **Response**: "You are entitled to up to 5 days of paid bereavement leave for immediate family members..."
+- **Benefit**: Provides instant support regardless of time zone or HR team availability.
+
+---
+
+## �💻 Tech Stack
 
 ### Core Framework
 | Component | Technology | Purpose |

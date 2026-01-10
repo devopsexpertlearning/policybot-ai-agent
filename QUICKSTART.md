@@ -7,6 +7,20 @@
 ## 5-Minute Local Setup
 
 ### Step 1: Setup Environment
+#### Linux / macOS
+```bash
+# Navigate to project
+cd policybot-ai-agent
+
+# Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+#### Windows
 ```powershell
 # Navigate to project
 cd policybot-ai-agent
@@ -20,6 +34,17 @@ pip install -r requirements.txt
 ```
 
 ### Step 2: Configure API Key
+#### Linux / macOS
+```bash
+# Copy environment template
+cp .env.example .env
+
+# Edit .env file and add your Google Gemini API key:
+# ENVIRONMENT=local
+# GOOGLE_GEMINI_API_KEY=your_actual_gemini_api_key_here
+```
+
+#### Windows
 ```powershell
 # Copy environment template
 copy .env.example .env
@@ -32,6 +57,13 @@ copy .env.example .env
 **Get Free Key**: https://makersuite.google.com/app/apikey
 
 ### Step 3: Initialize Vector Store
+#### Linux / macOS
+```bash
+# Process documents and create embeddings
+python scripts/setup_vectorstore.py
+```
+
+#### Windows
 ```powershell
 # Process documents and create embeddings
 python scripts\setup_vectorstore.py
@@ -48,6 +80,13 @@ Vector store type: FAISS
 ```
 
 ### Step 4: Run the Application
+#### Linux / macOS
+```bash
+# Start FastAPI server
+python -m app.main
+```
+
+#### Windows
 ```powershell
 # Start FastAPI server
 python -m app.main

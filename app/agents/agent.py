@@ -114,7 +114,15 @@ class AIAgent:
             'bereavement', 'holiday', 'time off', 'compensation', 'salary',
             'bonus', 'stock', 'equity', 'employee', 'hr', 'human resources',
             'code of conduct', 'ethics', 'compliance', 'security policy', 'it policy',
-            'password', 'access', 'confidential', 'data protection'
+            'password', 'access', 'confidential', 'data protection',
+            # Travel and expense keywords
+            'travel', 'expense', 'reimbursement', 'per diem', 'hotel', 'airfare',
+            'rental car', 'mileage', 'business trip', 'conference',
+            # Leave-specific keywords
+            'fmla', 'family leave', 'medical leave', 'sabbatical', 'jury duty',
+            # Performance and training
+            'performance review', 'promotion', 'pip', 'tuition', 'training',
+            'certification', 'development', 'mentorship', 'okr'
         ]
         
         # Check for policy keywords

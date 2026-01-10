@@ -1,0 +1,257 @@
+TRAVEL AND EXPENSE POLICY
+TechCorp Solutions
+Effective Date: January 2026
+Version 3.0
+
+1. PURPOSE AND SCOPE
+
+This policy establishes guidelines for business travel and expense reimbursement for all TechCorp Solutions employees, contractors, and authorized representatives conducting company business.
+
+The policy aims to:
+- Ensure cost-effective travel arrangements
+- Provide clear guidelines for allowable expenses
+- Establish timely reimbursement procedures
+- Maintain compliance with tax regulations
+- Protect employee safety during travel
+
+2. TRAVEL AUTHORIZATION
+
+2.1 Pre-Approval Requirements
+All business travel must be pre-approved by:
+- Direct manager for domestic travel under $2,000
+- Department head for domestic travel over $2,000
+- VP or above for international travel
+- CFO for travel exceeding $5,000
+
+2.2 Advance Notice
+Submit travel requests at least:
+- 2 weeks for domestic travel
+- 4 weeks for international travel
+- 6 weeks for travel requiring visas
+
+2.3 Emergency Travel
+In case of emergency, obtain verbal approval from your manager and submit written documentation within 24 hours.
+
+3. AIRFARE
+
+3.1 Booking Requirements
+- Use company-approved travel agency or booking platform
+- Book at least 14 days in advance when possible
+- Select most economical fare that meets business needs
+- Prefer non-stop flights when price difference is less than $100
+
+3.2 Class of Service
+- Domestic flights under 4 hours: Economy class
+- Domestic flights over 4 hours: Economy Plus/Premium Economy allowed
+- International flights under 6 hours: Economy class
+- International flights over 6 hours: Business class allowed for VP and above
+- Upgrades using personal funds or miles are permitted
+
+3.3 Baggage Fees
+- One checked bag fee is reimbursable
+- Additional bags require justification
+- Overweight fees not reimbursable unless for company equipment
+
+4. GROUND TRANSPORTATION
+
+4.1 Airport Transportation
+Preferred options (in order):
+1. Hotel shuttle (free)
+2. Shared ride services (Uber/Lyft Pool)
+3. Standard ride services (Uber/Lyft)
+4. Taxi
+5. Rental car (if multiple destinations)
+6. Airport parking (if driving personal vehicle)
+
+4.2 Rental Cars
+- Compact or mid-size vehicles only
+- Full-size allowed for 3+ passengers
+- SUVs require special approval
+- Decline rental car insurance (covered by corporate policy)
+- Refuel before return to avoid premium charges
+
+4.3 Personal Vehicle Use
+- Reimbursed at IRS standard mileage rate ($0.655/mile for 2026)
+- Must have valid license and insurance
+- Calculate mileage using Google Maps or similar
+- Not to exceed cost of airfare for trips over 300 miles
+
+4.4 Public Transportation
+- Fully reimbursable (trains, subways, buses)
+- Keep receipts for amounts over $25
+
+5. LODGING
+
+5.1 Hotel Selection
+- Use company-preferred hotel chains when available
+- Book through corporate travel platform for negotiated rates
+- Select hotels within reasonable proximity to business location
+- Maximum rates (per night, excluding taxes):
+  * Tier 1 cities (NYC, SF, LA, etc.): $250
+  * Tier 2 cities: $175
+  * Tier 3 cities: $125
+  * International: Varies by location (consult travel team)
+
+5.2 Extended Stays
+- Stays over 7 nights: Consider extended-stay hotels or apartments
+- Stays over 30 nights: Negotiate monthly rates
+
+5.3 Shared Accommodations
+- Employees are not required to share rooms
+- Sharing is encouraged for cost savings but voluntary
+
+6. MEALS AND ENTERTAINMENT
+
+6.1 Per Diem Rates
+Daily meal allowances (no receipts required under per diem):
+- Breakfast: $15
+- Lunch: $25
+- Dinner: $40
+- Total daily: $80
+
+6.2 Actual Expense Method
+Alternatively, submit actual meal receipts:
+- Must be reasonable and appropriate
+- Alcohol limited to $25 per day
+- Excessive or lavish meals will not be reimbursed
+
+6.3 Client Entertainment
+- Pre-approval required for meals over $100 per person
+- Must include business purpose and attendees
+- Alcohol allowed in moderation
+- Entertainment (shows, golf, etc.) requires VP approval
+
+6.4 Non-Reimbursable Items
+- Minibar charges
+- In-room movies
+- Personal snacks or beverages
+- Room service (except when no other options available)
+
+7. OTHER EXPENSES
+
+7.1 Communication
+- International phone plan or SIM card: Reimbursable
+- Wi-Fi fees: Reimbursable
+- Personal calls: Not reimbursable
+
+7.2 Business Supplies
+- Printing, shipping, office supplies: Reimbursable with receipt
+- Must be business-related
+
+7.3 Laundry and Dry Cleaning
+- Reimbursable for trips over 5 consecutive nights
+- Maximum $25 per week
+
+7.4 Tips and Gratuities
+- Reasonable tips (15-20%) are reimbursable
+- Include in expense report with explanation
+
+8. EXPENSE REPORTING
+
+8.1 Submission Timeline
+- Submit expense reports within 30 days of trip completion
+- Late submissions may be denied
+- Outstanding reports block future travel approvals
+
+8.2 Required Documentation
+- Original itemized receipts for expenses over $25
+- Credit card receipts alone are not sufficient
+- Business purpose and attendees for meals
+- Conference agendas for event attendance
+
+8.3 Expense Report Platform
+- Use Concur expense management system
+- Attach digital copies of all receipts
+- Categorize expenses correctly
+- Provide detailed descriptions
+
+8.4 Reimbursement Timeline
+- Approved expenses paid within 10 business days
+- Direct deposit to employee bank account
+- Check available upon request
+
+9. CORPORATE CREDIT CARDS
+
+9.1 Eligibility
+- Available to employees who travel frequently (5+ trips/year)
+- Requires manager approval
+- Subject to credit check
+
+9.2 Usage Guidelines
+- Use only for approved business expenses
+- Personal use strictly prohibited
+- Report lost/stolen cards immediately
+- Reconcile monthly statements in Concur
+
+9.3 Payment Responsibility
+- Company pays card balance directly
+- Employee responsible for disputed charges
+- Failure to reconcile may result in card cancellation
+
+10. INTERNATIONAL TRAVEL
+
+10.1 Additional Requirements
+- Valid passport (6+ months validity)
+- Necessary visas and work permits
+- Travel insurance (provided by company)
+- Register trip with corporate security
+
+10.2 Currency Exchange
+- Use corporate credit card for foreign transactions
+- Avoid currency exchange kiosks (high fees)
+- ATM withdrawals reimbursable (limit 2 per trip)
+
+10.3 Vaccinations and Health
+- Required vaccinations are reimbursable
+- Consult CDC travel recommendations
+- Carry prescription medications in original containers
+
+11. TRAVEL SAFETY
+
+11.1 Security Protocols
+- Enroll in Smart Traveler Enrollment Program (STEP)
+- Share itinerary with manager and emergency contact
+- Avoid high-risk areas
+- Follow State Department travel advisories
+
+11.2 Emergency Assistance
+- 24/7 travel assistance hotline: 1-800-XXX-XXXX
+- Contact local embassy/consulate if needed
+- Report incidents to corporate security immediately
+
+12. POLICY VIOLATIONS
+
+12.1 Consequences
+- First violation: Written warning
+- Second violation: Reimbursement denial
+- Third violation: Loss of travel privileges
+- Severe violations: Disciplinary action up to termination
+
+12.2 Fraud
+- Falsifying expense reports is grounds for immediate termination
+- May result in legal action
+- Must repay fraudulent amounts
+
+13. EXCEPTIONS AND APPEALS
+
+13.1 Exception Requests
+- Submit in writing to Finance department
+- Include business justification
+- Requires CFO approval
+
+13.2 Appeals Process
+- Denied expenses can be appealed within 30 days
+- Submit appeal to Finance Director
+- Final decision within 15 business days
+
+14. POLICY UPDATES
+
+This policy is reviewed annually and updated as needed. Employees will be notified of changes via email and company intranet.
+
+Questions regarding this policy should be directed to:
+- Travel Team: travel@techcorp.com
+- Finance Department: finance@techcorp.com
+- HR Department: hr@techcorp.com
+
+Last Updated: January 1, 2026
+Next Review: January 1, 2027

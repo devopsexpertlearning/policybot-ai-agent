@@ -1,0 +1,387 @@
+TRAINING AND PROFESSIONAL DEVELOPMENT POLICY
+TechCorp Solutions
+Effective Date: January 2026
+
+1. POLICY STATEMENT
+
+TechCorp Solutions is committed to the continuous learning and professional development of all employees. We believe that investing in our people's growth directly contributes to innovation, employee satisfaction, and business success.
+
+2. LEARNING AND DEVELOPMENT PHILOSOPHY
+
+2.1 Core Principles
+- Learning is a continuous journey, not a destination
+- Development is a shared responsibility between employee and company
+- Skills development should align with both individual career goals and business needs
+- We support diverse learning modalities to accommodate different learning styles
+- Knowledge sharing strengthens our collective capabilities
+
+2.2 Development Budget
+- Each employee receives an annual learning budget of $2,500
+- Managers and above receive $4,000 annually
+- Directors and above receive $6,000 annually
+- Unused budget does not roll over to the next year
+
+3. TYPES OF LEARNING OPPORTUNITIES
+
+3.1 Internal Training Programs
+- New Hire Onboarding (2-week program)
+- Technical Skills Workshops (monthly)
+- Leadership Development Program (quarterly cohorts)
+- Lunch and Learn Sessions (weekly)
+- Internal Certifications (role-specific)
+
+3.2 External Training
+- Industry conferences and events
+- Professional certifications
+- Online courses (Coursera, Udemy, LinkedIn Learning, Pluralsight)
+- Workshops and bootcamps
+- Academic courses and degree programs
+
+3.3 On-the-Job Learning
+- Stretch assignments
+- Job rotation programs
+- Cross-functional projects
+- Shadowing opportunities
+- Mentorship and coaching
+
+4. TUITION REIMBURSEMENT PROGRAM
+
+4.1 Eligibility
+- Full-time employees with 6+ months of service
+- Good performance standing (rating of 3 or above)
+- Course must be relevant to current or future role at TechCorp
+
+4.2 Covered Programs
+- Undergraduate degrees
+- Graduate degrees (Master's, MBA, PhD)
+- Professional certifications
+- Accredited online degree programs
+
+4.3 Reimbursement Amounts
+Annual limits:
+- Undergraduate: Up to $5,000 per year
+- Graduate: Up to $10,000 per year
+- Professional certifications: Up to $3,000 per year
+
+4.4 Reimbursement Process
+1. Submit pre-approval form to manager and HR (at least 30 days before course starts)
+2. Receive written approval
+3. Complete course with grade of B or higher (or "Pass" for pass/fail courses)
+4. Submit reimbursement request with:
+   - Official transcript or certificate
+   - Itemized receipt
+   - Proof of payment
+5. Reimbursement processed within 30 days
+
+4.5 Service Commitment
+- Must remain employed for 12 months after reimbursement
+- If employee leaves voluntarily within 12 months, must repay:
+  * 100% if leaving within 6 months
+  * 50% if leaving between 6-12 months
+- Commitment waived for involuntary termination (layoff)
+
+5. PROFESSIONAL CERTIFICATIONS
+
+5.1 Encouraged Certifications by Role
+
+Engineering:
+- AWS Certified Solutions Architect
+- Google Cloud Professional
+- Certified Kubernetes Administrator (CKA)
+- Certified Information Systems Security Professional (CISSP)
+
+Product Management:
+- Certified Scrum Product Owner (CSPO)
+- Product Management Certificate (PMC)
+- Pragmatic Marketing Certification
+
+Data Science:
+- Google Data Analytics Certificate
+- AWS Certified Machine Learning
+- TensorFlow Developer Certificate
+
+Project Management:
+- Project Management Professional (PMP)
+- Certified ScrumMaster (CSM)
+- SAFe Agilist
+
+5.2 Certification Support
+- Exam fees fully covered (up to 3 attempts)
+- Study materials reimbursed (books, practice tests, courses)
+- Paid study time (up to 40 hours for major certifications)
+- Certification maintenance fees covered annually
+
+5.3 Certification Bonus
+- $500 bonus for achieving approved certifications
+- $1,000 for expert-level certifications (e.g., AWS Solutions Architect Professional)
+- Recognition in company newsletter
+
+6. CONFERENCE AND EVENT ATTENDANCE
+
+6.1 Approval Process
+- Submit request at least 6 weeks in advance
+- Include conference details, agenda, and business justification
+- Manager approval required
+- Budget approval from Finance for costs over $2,000
+
+6.2 Covered Expenses
+- Conference registration fees
+- Travel and accommodation (per travel policy)
+- Meals (per diem rates apply)
+- Networking events included in conference
+
+6.3 Post-Conference Requirements
+- Share key learnings with team (presentation or written summary)
+- Upload notes and materials to company knowledge base
+- Identify actionable insights for TechCorp
+
+6.4 Speaking Opportunities
+- Employees speaking at conferences receive full support
+- Speaking fees belong to employee
+- Company covers all expenses
+- Considered a significant professional development achievement
+
+7. ONLINE LEARNING PLATFORMS
+
+7.1 Company-Sponsored Subscriptions
+TechCorp provides free access to:
+- LinkedIn Learning (all employees)
+- Pluralsight (technical roles)
+- Udemy for Business (all employees)
+- O'Reilly Online Learning (technical roles)
+- Harvard Business Review (managers and above)
+
+7.2 Usage Expectations
+- Dedicate at least 2 hours per month to learning
+- Complete at least 2 courses per quarter
+- Share relevant courses with team
+- Apply learnings to work
+
+7.3 Learning Time
+- Employees may use up to 5 hours per month during work hours for learning
+- Managers should support and encourage this time
+- Learning hours tracked in development plan
+
+8. LEADERSHIP DEVELOPMENT
+
+8.1 Emerging Leaders Program
+- 6-month program for high-potential individual contributors
+- Covers leadership fundamentals, communication, strategic thinking
+- Includes executive coaching and peer learning
+- Graduates considered for future management roles
+
+8.2 New Manager Training
+Required for all new managers within first 90 days:
+- Management Essentials (2-day workshop)
+- Giving Effective Feedback
+- Performance Management
+- Building High-Performing Teams
+- Employment Law Basics
+
+8.3 Executive Development
+For Directors and above:
+- Executive coaching (6-month engagements)
+- Executive MBA sponsorship
+- Leadership conferences (e.g., Fortune CEO Initiative)
+- Board service opportunities
+
+9. MENTORSHIP PROGRAM
+
+9.1 Program Structure
+- Formal mentorship program with 6-month commitments
+- Mentors and mentees matched based on goals and experience
+- Monthly meetings minimum
+- Structured curriculum with discussion topics
+
+9.2 Mentor Eligibility
+- 2+ years at TechCorp
+- Strong performance record
+- Completed mentor training
+- Commitment to mentee's development
+
+9.3 Mentee Benefits
+- Career guidance and advice
+- Expanded professional network
+- Exposure to different parts of the business
+- Accelerated learning and development
+
+9.4 Mentor Benefits
+- Leadership development
+- Fresh perspectives
+- Satisfaction of helping others grow
+- Recognition as a mentor
+
+10. TECHNICAL SKILLS DEVELOPMENT
+
+10.1 Technical Learning Paths
+Defined learning paths for:
+- Software Engineering (Junior → Senior → Staff → Principal)
+- Data Science
+- DevOps/SRE
+- Security Engineering
+- Product Design
+
+10.2 Hands-On Learning
+- Hackathons (quarterly)
+- Innovation Days (monthly - 20% time)
+- Internal tech talks (weekly)
+- Code reviews as learning opportunities
+- Pair programming encouraged
+
+10.3 Technical Certifications
+Priority certifications by track:
+- Cloud: AWS, GCP, Azure certifications
+- Security: CISSP, CEH, Security+
+- Data: Databricks, Snowflake, dbt certifications
+- DevOps: Kubernetes, Terraform, Jenkins certifications
+
+11. SOFT SKILLS DEVELOPMENT
+
+11.1 Core Soft Skills Training
+Available to all employees:
+- Effective Communication
+- Emotional Intelligence
+- Time Management and Productivity
+- Conflict Resolution
+- Presentation Skills
+- Negotiation Skills
+
+11.2 Workshops and Seminars
+Quarterly offerings:
+- Design Thinking
+- Creative Problem Solving
+- Influencing Without Authority
+- Building Executive Presence
+- Cross-Cultural Communication
+
+12. KNOWLEDGE SHARING
+
+12.1 Internal Knowledge Base
+- Confluence wiki for documentation
+- Employees encouraged to document learnings
+- "How-To" guides and best practices
+- Searchable repository of resources
+
+12.2 Tech Talks and Presentations
+- Weekly "Tech Talk Tuesday" sessions
+- Employees present on topics of expertise
+- Recorded and shared company-wide
+- Presenters receive recognition
+
+12.3 Communities of Practice
+- Engineering Community
+- Product Community
+- Data Science Community
+- Design Community
+- Monthly meetups and knowledge sharing
+
+13. CAREER DEVELOPMENT PLANNING
+
+13.1 Individual Development Plans (IDP)
+- Created during annual performance review
+- Updated quarterly
+- Includes:
+  * Career goals (1-year and 3-year)
+  * Skills to develop
+  * Learning activities and timeline
+  * Success metrics
+
+13.2 Career Conversations
+- Quarterly career discussions with manager
+- Separate from performance reviews
+- Focus on long-term aspirations
+- Identify opportunities for growth
+
+13.3 Internal Mobility
+- Internal job postings shared before external
+- Employees encouraged to explore different roles
+- Manager support required for internal transfers
+- Minimum 18 months in current role (exceptions possible)
+
+14. LEARNING MEASUREMENT AND IMPACT
+
+14.1 Tracking Learning Activities
+- Log all learning activities in Workday
+- Track hours spent on development
+- Record certifications and completions
+
+14.2 Measuring Impact
+- Pre and post-training assessments
+- Application of skills in role
+- Performance improvement
+- Employee engagement scores
+- Retention of high performers
+
+15. MANAGER RESPONSIBILITIES
+
+15.1 Supporting Employee Development
+Managers must:
+- Discuss development goals in 1-on-1s
+- Approve reasonable learning requests
+- Provide time for learning activities
+- Remove obstacles to development
+- Recognize and celebrate learning achievements
+
+15.2 Manager Development Budget
+- Managers have discretionary budget for team development
+- Can fund team workshops, guest speakers, team training
+- Requires Finance approval for amounts over $5,000
+
+16. SPECIAL PROGRAMS
+
+16.1 Sabbatical Program
+- Available to employees with 5+ years of service
+- Up to 4 weeks paid sabbatical
+- Can be used for extended learning (e.g., intensive bootcamp)
+- Requires 6 months advance notice and manager approval
+
+16.2 Innovation Fellowship
+- Competitive program (10 spots per year)
+- 3-month rotation to work on innovation projects
+- Exposure to different technologies and teams
+- Participants selected based on application and interview
+
+16.3 Conference Speaker Support
+- Coaching for employees submitting conference proposals
+- Presentation skills training
+- Dry-run opportunities with feedback
+- Travel support for accepted speakers
+
+17. POLICY COMPLIANCE AND ADMINISTRATION
+
+17.1 Approval Workflow
+1. Employee discusses with manager
+2. Manager approves if within budget and policy
+3. HR approves tuition reimbursement requests
+4. Finance approves expenses over $2,000
+
+17.2 Record Keeping
+- HR maintains records of all training and certifications
+- Certificates and transcripts stored in employee file
+- Learning hours tracked in Workday
+
+17.3 Policy Exceptions
+- Exceptions require VP approval
+- Documented business justification required
+- Reviewed case-by-case
+
+18. RESOURCES AND SUPPORT
+
+18.1 Learning and Development Team
+- Email: learning@techcorp.com
+- Slack: #learning-and-development
+- Office hours: Tuesdays 2-4 PM
+
+18.2 Additional Resources
+- Career coaches available by appointment
+- Learning resource library
+- Recommended reading lists by role
+- Curated learning paths in LMS
+
+Questions about this policy? Contact:
+- Your manager
+- HR Business Partner
+- Learning and Development team
+
+Last Updated: January 1, 2026
+Next Review: January 1, 2027

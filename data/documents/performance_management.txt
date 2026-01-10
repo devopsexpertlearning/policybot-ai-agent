@@ -1,0 +1,397 @@
+PERFORMANCE MANAGEMENT POLICY
+TechCorp Solutions
+Effective Date: January 2026
+
+1. INTRODUCTION
+
+TechCorp Solutions is committed to fostering a high-performance culture through continuous feedback, development, and recognition. This policy outlines our performance management framework, evaluation processes, and career development opportunities.
+
+1.1 Philosophy
+We believe that:
+- Performance management is an ongoing dialogue, not an annual event
+- Employees deserve clear expectations and regular feedback
+- Development and growth are mutual responsibilities
+- Recognition should be timely and meaningful
+- Performance directly impacts compensation and career progression
+
+2. PERFORMANCE MANAGEMENT CYCLE
+
+2.1 Continuous Performance Management
+Our approach includes:
+- Quarterly goal setting and reviews
+- Monthly 1-on-1 meetings with managers
+- Real-time feedback and recognition
+- Annual comprehensive performance review
+- Mid-year check-ins
+
+2.2 Key Components
+1. Goal Setting (OKRs - Objectives and Key Results)
+2. Ongoing Feedback and Coaching
+3. Performance Documentation
+4. Formal Performance Reviews
+5. Development Planning
+6. Compensation Review
+
+3. GOAL SETTING (OKRs)
+
+3.1 Objective Setting
+- Set 3-5 objectives per quarter
+- Objectives should be ambitious but achievable
+- Align individual OKRs with team and company goals
+- Review and adjust quarterly
+
+3.2 Key Results
+- Each objective should have 2-4 measurable key results
+- Key results must be specific, measurable, and time-bound
+- Target 70% achievement (stretch goals)
+- Track progress weekly
+
+3.3 OKR Framework
+Objectives answer: "What do we want to achieve?"
+Key Results answer: "How will we know we're making progress?"
+
+Example:
+Objective: Improve customer satisfaction
+Key Results:
+- Increase NPS score from 45 to 60
+- Reduce support ticket resolution time to under 4 hours
+- Achieve 95% first-contact resolution rate
+
+4. ONGOING FEEDBACK
+
+4.1 Manager Responsibilities
+- Provide weekly informal feedback
+- Conduct monthly 1-on-1 meetings (minimum 30 minutes)
+- Document significant achievements and concerns
+- Address performance issues promptly
+- Recognize and celebrate wins
+
+4.2 Employee Responsibilities
+- Seek feedback proactively
+- Come prepared to 1-on-1s with updates and questions
+- Document accomplishments and challenges
+- Communicate obstacles early
+- Act on feedback received
+
+4.3 Peer Feedback
+- Encouraged throughout the year
+- Use "SBI" model: Situation, Behavior, Impact
+- Focus on specific, actionable observations
+- Delivered with respect and constructive intent
+
+5. FORMAL PERFORMANCE REVIEWS
+
+5.1 Annual Review Cycle
+Timeline:
+- January: Goal setting for new year
+- March: Q1 check-in
+- June: Mid-year review
+- September: Q3 check-in
+- December: Annual performance review and rating
+
+5.2 Review Components
+1. Self-Assessment
+   - Reflect on accomplishments
+   - Assess goal achievement
+   - Identify development areas
+   - Propose goals for next period
+
+2. Manager Assessment
+   - Evaluate performance against goals
+   - Assess competencies and behaviors
+   - Provide overall rating
+   - Recommend development actions
+
+3. Calibration
+   - Leadership team reviews ratings for consistency
+   - Ensures fairness across organization
+   - Identifies high performers and development needs
+
+4. Review Discussion
+   - Manager and employee meet to discuss review
+   - Minimum 60 minutes
+   - Two-way conversation
+   - Document agreed-upon development plan
+
+5.3 Performance Ratings
+We use a 5-point scale:
+
+5 - Exceptional (Top 5%)
+- Consistently exceeds expectations in all areas
+- Demonstrates leadership beyond role
+- Significant impact on company success
+- Role model for company values
+
+4 - Exceeds Expectations (15-20%)
+- Regularly exceeds goals and expectations
+- Takes on additional responsibilities
+- Positive influence on team performance
+- Strong demonstration of company values
+
+3 - Meets Expectations (60-70%)
+- Consistently achieves goals and expectations
+- Reliable and competent in role
+- Demonstrates company values
+- Solid contributor to team success
+
+2 - Needs Improvement (5-10%)
+- Inconsistently meets expectations
+- Requires additional support and guidance
+- Performance improvement plan recommended
+- May not fully demonstrate company values
+
+1 - Unsatisfactory (<5%)
+- Consistently fails to meet expectations
+- Immediate performance improvement plan required
+- Continued employment at risk
+- Does not demonstrate company values
+
+6. PERFORMANCE IMPROVEMENT PLANS (PIP)
+
+6.1 When PIPs Are Used
+- Performance rating of 2 or below
+- Consistent failure to meet goals
+- Behavioral issues impacting team
+- Skills gap affecting job performance
+
+6.2 PIP Process
+1. Initial Meeting
+   - Manager and employee discuss concerns
+   - HR present for documentation
+   - Clear expectations set
+
+2. Written PIP Document
+   - Specific performance gaps identified
+   - Measurable improvement goals
+   - Timeline (typically 30-90 days)
+   - Support and resources provided
+   - Consequences of non-improvement
+
+3. Regular Check-ins
+   - Weekly progress meetings
+   - Documentation of progress
+   - Adjustments as needed
+
+4. Final Assessment
+   - Evaluate improvement at end of PIP period
+   - Outcomes:
+     * Successful completion - return to normal status
+     * Extension - additional time granted
+     * Termination - if insufficient improvement
+
+6.3 Support During PIP
+- Additional training or coaching
+- Adjusted workload if appropriate
+- Clear, frequent feedback
+- Access to HR support
+
+7. COMPETENCY FRAMEWORK
+
+7.1 Core Competencies (All Employees)
+1. Communication
+   - Clear and effective written and verbal communication
+   - Active listening
+   - Adapts style to audience
+
+2. Collaboration
+   - Works effectively in teams
+   - Shares knowledge and resources
+   - Builds positive relationships
+
+3. Problem Solving
+   - Analyzes issues systematically
+   - Develops creative solutions
+   - Makes sound decisions
+
+4. Adaptability
+   - Embraces change
+   - Learns from experience
+   - Remains effective under pressure
+
+5. Accountability
+   - Takes ownership of work
+   - Meets commitments
+   - Admits and learns from mistakes
+
+7.2 Leadership Competencies (Managers and Above)
+1. People Development
+   - Coaches and mentors team members
+   - Provides constructive feedback
+   - Supports career growth
+
+2. Strategic Thinking
+   - Understands business context
+   - Plans for long-term success
+   - Aligns team with company goals
+
+3. Decision Making
+   - Makes timely, informed decisions
+   - Considers multiple perspectives
+   - Takes calculated risks
+
+4. Driving Results
+   - Sets clear expectations
+   - Holds team accountable
+   - Removes obstacles
+
+8. CAREER DEVELOPMENT
+
+8.1 Development Planning
+- Created during annual review
+- Updated quarterly
+- Includes:
+  * Career goals (1-year and 3-year)
+  * Skills to develop
+  * Development activities
+  * Timeline and milestones
+
+8.2 Development Opportunities
+- Internal training programs
+- External courses and certifications
+- Conferences and workshops
+- Stretch assignments
+- Job shadowing
+- Mentorship programs
+- Cross-functional projects
+
+8.3 Tuition Reimbursement
+- Up to $5,000 per year for approved programs
+- Must be relevant to current or future role
+- Requires pre-approval
+- Reimbursed upon successful completion (grade B or higher)
+- 2-year commitment to company after completion
+
+9. PROMOTION AND ADVANCEMENT
+
+9.1 Promotion Criteria
+- Consistent "Exceeds Expectations" or higher ratings
+- Demonstrated competencies for next level
+- Business need for role
+- Manager recommendation
+- Approval by leadership team
+
+9.2 Promotion Process
+1. Employee and manager discuss readiness
+2. Manager submits promotion proposal
+3. HR reviews for equity and consistency
+4. Leadership team approves
+5. Effective at start of next quarter
+
+9.3 Promotion Timeline
+- Reviewed quarterly
+- Announced at all-hands meetings
+- Salary adjustments effective immediately
+
+10. COMPENSATION AND REWARDS
+
+10.1 Performance-Based Compensation
+- Annual merit increases based on performance rating
+- Typical ranges:
+  * Rating 5: 8-12% increase
+  * Rating 4: 5-7% increase
+  * Rating 3: 2-4% increase
+  * Rating 2: 0-1% increase
+  * Rating 1: No increase
+
+10.2 Bonus Program
+- Annual bonus for eligible employees
+- Based on:
+  * Individual performance (50%)
+  * Team performance (25%)
+  * Company performance (25%)
+- Target bonus varies by level (10-30% of base salary)
+
+10.3 Spot Bonuses
+- Immediate recognition for exceptional work
+- $500-$2,500 range
+- Manager discretion with VP approval
+- No limit on frequency
+
+10.4 Stock Options
+- Granted to high performers and leadership
+- Vesting schedule: 4 years with 1-year cliff
+- Reviewed annually
+
+11. RECOGNITION PROGRAMS
+
+11.1 Peer Recognition
+- "Kudos" program for peer-to-peer recognition
+- Redeemable for gift cards or company swag
+- Visible on company intranet
+
+11.2 Quarterly Awards
+- Team Excellence Award
+- Innovation Award
+- Customer Champion Award
+- $1,000 prize and recognition at all-hands
+
+11.3 Annual Awards
+- Employee of the Year
+- Manager of the Year
+- Team of the Year
+- $5,000 prize and trophy
+
+12. ADDRESSING PERFORMANCE ISSUES
+
+12.1 Progressive Discipline
+For performance or behavioral issues:
+1. Verbal Warning (documented)
+2. Written Warning
+3. Final Written Warning
+4. Performance Improvement Plan
+5. Termination
+
+12.2 Serious Misconduct
+Immediate termination for:
+- Theft or fraud
+- Violence or threats
+- Harassment or discrimination
+- Breach of confidentiality
+- Violation of code of conduct
+
+13. APPEALS AND GRIEVANCES
+
+13.1 Appeal Process
+If employee disagrees with performance rating:
+1. Discuss with manager
+2. If unresolved, escalate to manager's manager
+3. HR can facilitate mediation
+4. Final decision by department head
+
+13.2 Timeline
+- Appeal must be filed within 10 business days of review
+- Resolution within 30 business days
+
+14. MANAGER TRAINING
+
+14.1 Required Training
+All managers must complete:
+- Performance Management Fundamentals (annual)
+- Giving Effective Feedback (annual)
+- Conducting Performance Reviews (annual)
+- Unconscious Bias Training (annual)
+
+14.2 New Manager Onboarding
+- Performance management overview
+- 1-on-1 best practices
+- Goal setting workshop
+- Shadow experienced manager
+
+15. POLICY COMPLIANCE
+
+15.1 Manager Accountability
+Managers must:
+- Conduct all required 1-on-1s
+- Complete performance reviews on time
+- Document performance issues
+- Provide regular feedback
+
+15.2 Consequences of Non-Compliance
+- Impacts manager's own performance rating
+- May affect bonus eligibility
+- Required remedial training
+
+Questions? Contact HR at hr@techcorp.com or your HRBP.
+
+Last Updated: January 1, 2026
+Next Review: January 1, 2027

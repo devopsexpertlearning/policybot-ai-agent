@@ -323,7 +323,8 @@ def get_vector_store():
     """Get vector store based on environment."""
     if settings.use_faiss:
         logger.info("Using FAISS vector store (local)")
-        return FAISSVectorStore()
+        dimension = 3072 if settings.use_gemini else 1536
+        return FAISSVectorStore(dimension=dimension)
     elif settings.use_azure_search:
         logger.info("Using Azure AI Search (production)")
         return AzureAISearchVectorStore()

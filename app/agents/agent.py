@@ -72,7 +72,10 @@ class AIAgent:
                 max_tokens=50
             )
             
+            logger.info(f"DEBUG: Raw classification response: '{classification}'")
             classification = classification.strip().upper()
+            if classification.startswith("CATEGORY:"):
+                classification = classification.replace("CATEGORY:", "").strip()
             
             # Map to QueryType
             if "GENERAL" in classification:
@@ -82,14 +85,67 @@ class AIAgent:
             elif "CLARIFICATION" in classification:
                 return QueryType.CLARIFICATION
             else:
-                # Default to POLICY for safety (use RAG)
-                logger.warning(f"Unknown classification: {classification}, defaulting to POLICY")
-                return QueryType.POLICY
+                # Fallback: Use keyword-based heuristics
+                logger.warning(f"LLM classification unclear: '{classification}', using keyword heuristics")
+                return self._classify_by_keywords(query)
         
         except Exception as e:
             logger.error(f"Error classifying query: {e}")
-            # Default to POLICY on error
+            # Fallback to keyword-based classification
+            return self._classify_by_keywords(query)
+    
+    def _classify_by_keywords(self, query: str) -> QueryType:
+        """
+        Fallback classification using keyword matching.
+        
+        Args:
+            query: User query
+            
+        Returns:
+            Query classification
+        """
+        query_lower = query.lower()
+        
+        # Policy-related keywords
+        policy_keywords = [
+            'policy', 'leave', 'vacation', 'pto', 'sick', 'benefit', 'insurance',
+            'health', '401k', 'retirement', 'dental', 'vision', 'fsa', 'hsa',
+            'remote', 'work from home', 'wfh', 'parental', 'maternity', 'paternity',
+            'bereavement', 'holiday', 'time off', 'compensation', 'salary',
+            'bonus', 'stock', 'equity', 'employee', 'hr', 'human resources',
+            'code of conduct', 'ethics', 'compliance', 'security policy', 'it policy',
+            'password', 'access', 'confidential', 'data protection'
+        ]
+        
+        # Check for policy keywords
+        if any(keyword in query_lower for keyword in policy_keywords):
+            logger.info(f"Classified as POLICY via keyword matching")
             return QueryType.POLICY
+        
+        # Greetings and casual conversation
+        greeting_patterns = ['hello', 'hi ', 'hey', 'good morning', 'good afternoon', 
+                            'how are you', 'what\'s up', 'greetings']
+        if any(pattern in query_lower for pattern in greeting_patterns):
+            logger.info(f"Classified as GENERAL via greeting detection")
+            return QueryType.GENERAL
+        
+        # General knowledge indicators
+        general_indicators = ['what is', 'who is', 'when did', 'where is', 'how does',
+                             'explain', 'define', 'capital of', 'write a', 'create a',
+                             'python', 'code', 'function', 'program', 'world cup',
+                             'president', 'history', 'science', 'math']
+        if any(indicator in query_lower for indicator in general_indicators):
+            logger.info(f"Classified as GENERAL via general knowledge indicators")
+            return QueryType.GENERAL
+        
+        # Very short or unclear queries
+        if len(query.split()) <= 2:
+            logger.info(f"Classified as CLARIFICATION (too short)")
+            return QueryType.CLARIFICATION
+        
+        # Default to POLICY for safety (use RAG)
+        logger.info(f"Defaulting to POLICY (no clear match)")
+        return QueryType.POLICY
     
     async def generate_direct_response(
         self,

@@ -36,36 +36,42 @@ CRITICAL INSTRUCTIONS:
 Context documents will be provided below."""
 
     # Decision-making prompt
-    INTENT_CLASSIFICATION = """Analyze the user's query and determine the best approach to answer it.
+    INTENT_CLASSIFICATION = """Classify the query into: GENERAL, POLICY, or CLARIFICATION.
 
-User Query: {query}
+Query: "What is the sick leave policy?"
+Category: POLICY
 
-Classify the query into ONE of these categories:
+Query: "Hello, how are you?"
+Category: GENERAL
 
-1. GENERAL: General knowledge questions that can be answered directly
-   Examples: "What is AI?", "How to be productive?", "What's the capital of France?"
+Query: "Can I use my personal phone for work?"
+Category: POLICY
 
-2. POLICY: Questions about company policies, procedures, or benefits that require document search
-   Examples: "What is the leave policy?", "How do I request PTO?", "What are the benefits?"
+Query: "What is the capital of France?"
+Category: GENERAL
 
-3. CLARIFICATION: Query is unclear or ambiguous and needs clarification
-   Examples: "What about that?", "Tell me more", "And?"
+Query: "I don't understand"
+Category: CLARIFICATION
 
-Respond with ONLY the category name: GENERAL, POLICY, or CLARIFICATION"""
+Query: "Write a python script to parse CSV"
+Category: GENERAL
+
+Query: "{query}"
+Category:"""
 
     # RAG prompt with context
-    RAG_WITH_CONTEXT = """You are answering a question based on company policy documents.
+    RAG_WITH_CONTEXT = """You are a helpful AI assistant answering questions based on the provided company policy documents.
+
+STRICT INSTRUCTIONS:
+1. Answer the question using ONLY the information from the context below.
+2. If the answer is not in the context, strictly state: "I don't have information about that in the available company policy documents."
+3. Do not use outside knowledge or make up information.
+4. Cite the document source for your answer (e.g. [Source: leave_policy.txt]).
 
 CONTEXT DOCUMENTS:
 {context}
 
 USER QUESTION: {query}
-
-INSTRUCTIONS:
-1. Answer the question using ONLY the information from the context above
-2. Be specific and cite which document(s) you used
-3. If the context doesn't contain enough information, say so
-4. Format your response clearly
 
 Answer:"""
 

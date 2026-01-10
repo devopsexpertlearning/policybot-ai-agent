@@ -107,7 +107,17 @@ class LLMClient:
                     generation_config=generation_config
                 )
                 
-                return response.text.strip()
+                try:
+                    return response.text.strip()
+                except Exception:
+                    # Handle multi-part responses (e.g. safety blocks)
+                    if response.parts:
+                        return "".join([part.text for part in response.parts]).strip()
+                    elif response.candidates:
+                         # Fallback to first candidate parts
+                         parts = response.candidates[0].content.parts
+                         return "".join([part.text for part in parts]).strip()
+                    raise
             
             else:  # Azure OpenAI
                 messages = []
@@ -180,7 +190,16 @@ class LLMClient:
                     generation_config=generation_config
                 )
                 
-                return response.text.strip()
+                try:
+                    return response.text.strip()
+                except Exception:
+                    # Handle multi-part responses
+                    if response.parts:
+                        return "".join([part.text for part in response.parts]).strip()
+                    elif response.candidates:
+                         parts = response.candidates[0].content.parts
+                         return "".join([part.text for part in parts]).strip()
+                    raise
             
             else:  # Azure OpenAI
                 response = await self.client.chat.completions.create(

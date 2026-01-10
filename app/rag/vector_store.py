@@ -63,7 +63,7 @@ class FAISSVectorStore:
         Path(self.index_path).parent.mkdir(parents=True, exist_ok=True)
         
         # Try to load existing index
-        if os.path.exists(self.index_path):
+        if os.path.exists(f"{self.index_path}.faiss"):
             self.load()
         else:
             # Create new index

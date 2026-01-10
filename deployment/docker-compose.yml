@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   policybot-ai-agent:
     build:
@@ -13,9 +11,7 @@ services:
       - LOG_LEVEL=INFO
     env_file:
       - ../.env
-    volumes:
-      - ../data/vector_stores:/app/data/vector_stores
-      - ../data/documents:/app/data/documents
+
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8000/health')"]

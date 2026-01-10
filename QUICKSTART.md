@@ -18,6 +18,8 @@ source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
+# For testing/dev:
+pip install -r requirements-dev.txt
 ```
 
 #### Windows
@@ -31,6 +33,8 @@ venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
+# For testing/dev:
+pip install -r requirements-dev.txt
 ```
 
 ### Step 2: Configure API Key
@@ -160,6 +164,7 @@ Then visit http://localhost:8000
   ```powershell
   venv\Scripts\activate
   pip install -r requirements.txt
+  pip install -r requirements-dev.txt
   ```
 
 ---

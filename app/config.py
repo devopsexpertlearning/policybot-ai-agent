@@ -75,7 +75,7 @@ class Settings(BaseSettings):
     chunk_size: int = Field(default=500, description="Text chunk size in tokens")
     chunk_overlap: int = Field(default=50, description="Chunk overlap in tokens")
     top_k_results: int = Field(default=5, description="Number of top results to retrieve")
-    similarity_threshold: float = Field(default=0.7, description="Similarity threshold for retrieval")
+    similarity_threshold: float = Field(default=0.65, description="Similarity threshold for retrieval")
     
     # ========================
     # LLM CONFIGURATION

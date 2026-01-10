@@ -2,6 +2,9 @@
 # Stage 1: Builder
 FROM python:3.11-slim as builder
 
+# Suppress benign debconf warnings
+ARG DEBIAN_FRONTEND=noninteractive
+
 WORKDIR /app
 
 # Install system dependencies
@@ -12,6 +15,9 @@ RUN apt-get update && apt-get install -y \
 
 # Copy requirements
 COPY requirements.txt .
+
+# Add local bin to PATH to suppress warnings
+ENV PATH=/root/.local/bin:$PATH
 
 # Install Python dependencies
 RUN pip install --no-cache-dir --user -r requirements.txt
@@ -29,6 +35,7 @@ COPY --from=builder /root/.local /home/appuser/.local
 
 # Copy application code
 COPY app/ /app/app/
+COPY scripts/ /app/scripts/
 COPY data/ /app/data/
 
 # Create data directories
@@ -38,6 +45,10 @@ RUN mkdir -p /app/data/vector_stores && chown -R appuser:appuser /app/data
 ENV PATH=/home/appuser/.local/bin:$PATH \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
+
+# Copy entrypoint script
+COPY deployment/entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 
 # Switch to non-root user
 USER appuser
@@ -49,5 +60,6 @@ EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import requests; requests.get('http://localhost:8000/health')"
 
+ENTRYPOINT ["/app/entrypoint.sh"]
 # Run the application
 CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

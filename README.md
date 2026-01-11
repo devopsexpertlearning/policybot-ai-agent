@@ -244,14 +244,13 @@ PolicyBot is designed to solve real-world enterprise challenges. Here are key sc
 
 ```
 policybot-ai-agent/
-├── .github/workflows/          # CI/CD pipelines
-│   └── azure-deploy.yml
 ├── app/                        # Application source
 │   ├── agents/                 # AI agent core
 │   │   ├── agent.py           # Decision engine ⭐
 │   │   ├── memory.py          # Session management
 │   │   └── tools.py           # Tool calling
 │   ├── api/                    # FastAPI routes
+│   │   └── routes.py
 │   ├── llm/                    # LLM integrations
 │   │   ├── llm_client.py      # Unified client (Gemini/Azure) ⭐
 │   │   └── prompts.py         # Prompt engineering
@@ -261,23 +260,27 @@ policybot-ai-agent/
 │   │   └── retriever.py
 │   ├── models/                 # Pydantic schemas
 │   ├── config.py              # Configuration ⭐
-│   └── main.py                # FastAPI app
+│   └── main.py                # FastAPI app entry point
 ├── data/
-│   ├── documents/             # Policy documents (5 files)
+│   ├── documents/             # Policy documents
 │   └── vector_stores/         # FAISS indices
 ├── deployment/
+│   ├── azure/                 # Azure manual deployment scripts
+│   ├── terraform/             # Infrastructure as Code (recommended)
 │   ├── Dockerfile            # Multi-stage production build
-│   ├── docker-compose.yml
-│   └── azure/deploy.sh
+│   └── docker-compose.yml
 ├── docs/                      # Project documentation
 │   ├── architecture.md       # System design
 │   ├── api.md               # API reference
-│   └── deployment.md        # Deployment guide
+│   ├── deployment.md        # Deployment guide
+│   └── testing.md           # Testing guide
 ├── scripts/
 │   ├── setup_vectorstore.py  # Initialize embeddings
 │   └── test_agent.py        # Interactive testing
-├── tests/                    # Test suite
+├── tests/                    # Test suite (unit, integration, performance)
 ├── .env.example             # Environment template
+├── DEPLOYMENT_GUIDE.md      # Comprehensive deployment guide
+├── QUICKSTART.md            # Quick start guide
 ├── requirements.txt         # Python dependencies
 └── README.md               # This file
 ```

@@ -56,11 +56,22 @@ async def main():
     texts = [chunk["content"] for chunk in chunks]
     
     try:
-        embeddings = await llm_client.generate_embeddings_batch(texts, batch_size=10)
+        embeddings = await llm_client.generate_embeddings_batch(texts, batch_size=1)
         logger.info(f"✅ Generated {len(embeddings)} embeddings")
     except Exception as e:
         logger.error(f"Error generating embeddings: {e}")
         return
+    
+    # Create index if using Azure Search
+    if not settings.use_faiss:
+        logger.info("🔧 Creating Azure AI Search index...")
+        try:
+            dimension = 3072 if settings.use_gemini else 1536
+            vector_store.create_index(dimension=dimension)
+            logger.info("✅ Index created/verified")
+        except Exception as e:
+            logger.error(f"Error creating index: {e}")
+            return
     
     # Add to vector store
     logger.info("💾 Adding documents to vector store...")

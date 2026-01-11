@@ -48,32 +48,52 @@ class AIAgent:
         self.tool_executor = tool_executor
         self.retriever = retriever
         self.prompts = PromptTemplates()
+        self.stats = {
+            "total_queries": 0,
+            "start_time": time.time()
+        }
     
-    async def classify_query(self, query: str) -> QueryType:
+    async def classify_query(self, query: str, session_id: Optional[str] = None) -> QueryType:
         """
         Classify the user query to determine handling strategy.
         
         Args:
             query: User query
+            session_id: Optional session ID for conversation context
             
         Returns:
             Query classification
         """
         logger.info("Classifying query...")
         
-        # Get intent classification prompt
-        prompt = self.prompts.get_intent_prompt(query)
+        # Get conversation history if session exists
+        conversation_context = ""
+        if session_id and self.memory.session_exists(session_id):
+            history = self.memory.get_history(session_id, max_messages=3)  # Last 3 messages
+            if history:
+                conversation_context = "\n\nRecent conversation:\n"
+                for msg in history:
+                    role = msg.get("role", "unknown")
+                    content = msg.get("content", "")
+                    conversation_context += f"{role.capitalize()}: {content}\n"
+        
+        # Get intent classification prompt with context
+        prompt = self.prompts.get_intent_prompt(query, context=conversation_context)
         
         try:
             # Get classification from LLM
             classification = await self.llm_client.generate(
                 prompt=prompt,
-                temperature=0.3,  # Lower temperature for classification
-                max_tokens=50
+                temperature=0.5,  # Lower temperature for classification
+                max_tokens=1000
             )
             
             logger.info(f"DEBUG: Raw classification response: '{classification}'")
             classification = classification.strip().upper()
+            
+            # Remove markdown code blocks if present
+            classification = classification.replace("```", "").replace("PLAINTEXT", "").strip()
+            
             if classification.startswith("CATEGORY:"):
                 classification = classification.replace("CATEGORY:", "").strip()
             
@@ -122,7 +142,7 @@ class AIAgent:
             'fmla', 'family leave', 'medical leave', 'sabbatical', 'jury duty',
             # Performance and training
             'performance review', 'promotion', 'pip', 'tuition', 'training',
-            'certification', 'development', 'mentorship', 'okr'
+            'certification', 'development', 'mentorship', 'okr', 'improvement plan'
         ]
         
         # Check for policy keywords
@@ -141,7 +161,7 @@ class AIAgent:
         general_indicators = ['what is', 'who is', 'when did', 'where is', 'how does',
                              'explain', 'define', 'capital of', 'write a', 'create a',
                              'python', 'code', 'function', 'program', 'world cup',
-                             'president', 'history', 'science', 'math']
+                             'president', 'history', 'science', 'math', 'docker', 'javascript']
         if any(indicator in query_lower for indicator in general_indicators):
             logger.info(f"Classified as GENERAL via general knowledge indicators")
             return QueryType.GENERAL
@@ -195,7 +215,7 @@ class AIAgent:
         
         return {
             "answer": answer,
-            "sources": [],
+            "source": ["direct_llm"],
             "method": ResponseMethod.DIRECT
         }
     
@@ -216,6 +236,15 @@ class AIAgent:
         """
         logger.info("Generating RAG response...")
         
+        # Get conversation history for context
+        history = self.memory.get_history(session_id, max_messages=3)
+        conversation_context = ""
+        if history:
+            for msg in history:
+                role = msg.get("role", "unknown")
+                content = msg.get("content", "")
+                conversation_context += f"{role.capitalize()}: {content}\n"
+        
         # Retrieve relevant documents
         documents = await self.retriever.retrieve(
             query=query,
@@ -230,8 +259,8 @@ class AIAgent:
                 "method": ResponseMethod.RAG
             }
         
-        # Format context from documents
-        rag_prompt = self.prompts.get_rag_prompt(query, documents)
+        # Format context from documents with conversation history
+        rag_prompt = self.prompts.get_rag_prompt(query, documents, conversation_history=conversation_context)
         
         # Generate response
         answer = await self.llm_client.generate(
@@ -246,7 +275,7 @@ class AIAgent:
         
         return {
             "answer": answer,
-            "sources": sources,
+            "source": sources,
             "method": ResponseMethod.RAG,
             "retrieved_documents": len(documents)
         }
@@ -274,15 +303,18 @@ class AIAgent:
         
         logger.info(f"Processing query for session {session_id}: {query[:100]}")
         
-        # Add user message to history
-        self.memory.add_message(session_id, "user", query)
+        # Update stats
+        self.stats["total_queries"] += 1
         
         try:
-            # Step 1: Classify query
-            query_type = await self.classify_query(query)
+            # Step 1: Classify query with conversation context (BEFORE adding to history)
+            query_type = await self.classify_query(query, session_id)
             logger.info(f"Query classified as: {query_type.value}")
             
-            # Step 2: Generate response based on classification
+            # Step 2: Add user message to history (AFTER classification)
+            self.memory.add_message(session_id, "user", query)
+            
+            # Step 3: Generate response based on classification
             if query_type == QueryType.GENERAL:
                 response = await self.generate_direct_response(query, session_id)
             
@@ -301,7 +333,7 @@ class AIAgent:
                 session_id,
                 "assistant",
                 response["answer"],
-                sources=response.get("sources")
+                sources=response.get("source")
             )
             
             # Calculate processing time
@@ -310,7 +342,7 @@ class AIAgent:
             # Build final response
             return {
                 "answer": response["answer"],
-                "source": response.get("sources", []),  # API spec uses "source"
+                "source": response.get("source", []),
                 "session_id": session_id,
                 "metadata": {
                     "query_type": query_type.value,
@@ -348,7 +380,8 @@ class AIAgent:
         return {
             "memory": self.memory.get_stats(),
             "provider": self.llm_client.provider,
-            "environment": settings.environment
+            "environment": settings.environment,
+            "total_queries": self.stats["total_queries"]
         }
 
 

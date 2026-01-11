@@ -7,11 +7,19 @@ import os
 from typing import List, Dict, Any, Optional
 from pathlib import Path
 import logging
+import logging
 from pypdf import PdfReader
 import re
+try:
+    import docx
+except ImportError:
+    docx = None
 
 from app.config import settings
 
+# Configure logging
+logging.getLogger("pypdf").setLevel(logging.ERROR)
+logging.getLogger("pypdf._reader").setLevel(logging.ERROR)
 logger = logging.getLogger(__name__)
 
 
@@ -78,7 +86,76 @@ class DocumentProcessor:
         except Exception as e:
             logger.error(f"Error processing PDF {file_path}: {e}")
             return []
-    
+    def process_docx(self, file_path: str) -> List[Dict[str, Any]]:
+        """
+        Process DOCX file and extract text.
+        
+        Args:
+            file_path: Path to DOCX file
+            
+        Returns:
+            List of chunks with metadata
+        """
+        logger.info(f"Processing DOCX: {file_path}")
+        
+        if not docx:
+            logger.error("python-docx not installed. Cannot process DOCX files.")
+            return []
+            
+        try:
+            doc = docx.Document(file_path)
+            chunks = []
+            
+            # Extract text from paragraphs
+            text = "\n".join([paragraph.text for paragraph in doc.paragraphs])
+            
+            if text.strip():
+                # Clean text
+                text = self._clean_text(text)
+                
+                # Split into chunks
+                text_chunks = self._split_text(text)
+                
+                # Add metadata
+                for chunk_id, chunk_text in enumerate(text_chunks, 1):
+                    chunks.append({
+                        "content": chunk_text,
+                        "metadata": {
+                            "source": os.path.basename(file_path),
+                            "chunk_id": f"docx-{chunk_id}",
+                            "file_path": file_path,
+                            "file_type": "docx"
+                        }
+                    })
+            
+            logger.info(f"Extracted {len(chunks)} chunks from DOCX file")
+            return chunks
+        
+        except Exception as e:
+            logger.error(f"Error processing DOCX {file_path}: {e}")
+            return []
+
+    def process_file(self, file_path: str) -> List[Dict[str, Any]]:
+        """
+        Process a file based on its extension.
+        
+        Args:
+            file_path: Path to file
+            
+        Returns:
+            List of chunks with metadata
+        """
+        file_path = str(file_path)
+        if file_path.lower().endswith('.pdf'):
+            return self.process_pdf(file_path)
+        elif file_path.lower().endswith('.docx'):
+            return self.process_docx(file_path)
+        elif file_path.lower().endswith('.txt'):
+            return self.process_text(file_path)
+        else:
+            logger.warning(f"Unsupported file type: {file_path}")
+            return []
+
     def process_text(self, file_path: str) -> List[Dict[str, Any]]:
         """
         Process text file.
@@ -97,6 +174,9 @@ class DocumentProcessor:
             
             # Clean text
             text = self._clean_text(text)
+            
+            if not text:
+                return []
             
             # Split into chunks
             text_chunks = self._split_text(text)
@@ -136,15 +216,21 @@ class DocumentProcessor:
         all_chunks = []
         directory = Path(directory_path)
         
-        # Find all PDF and text files
+        # Find all PDF, DOCX and text files
         pdf_files = list(directory.glob("**/*.pdf"))
+        docx_files = list(directory.glob("**/*.docx"))
         txt_files = list(directory.glob("**/*.txt"))
         
-        logger.info(f"Found {len(pdf_files)} PDF files and {len(txt_files)} text files")
+        logger.info(f"Found {len(pdf_files)} PDF, {len(docx_files)} DOCX, and {len(txt_files)} text files")
         
         # Process PDFs
         for pdf_file in pdf_files:
             chunks = self.process_pdf(str(pdf_file))
+            all_chunks.extend(chunks)
+            
+        # Process DOCX
+        for docx_file in docx_files:
+            chunks = self.process_docx(str(docx_file))
             all_chunks.extend(chunks)
         
         # Process text files

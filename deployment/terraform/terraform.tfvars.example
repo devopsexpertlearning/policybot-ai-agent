@@ -18,7 +18,7 @@ acr_sku  = "Standard"
 
 # App Service
 app_service_plan_name = "policybot-ai-agent-plan"
-app_service_plan_sku  = "P1v2"  # Production: P1v2, P2v2, or P3v2
+app_service_plan_sku  = "F1"  # Production: P1v2, P2v2, or P3v2
 app_service_name      = "policybot-ai-agent-app"  # Must be globally unique
 app_service_always_on = true
 

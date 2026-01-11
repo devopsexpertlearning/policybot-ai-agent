@@ -23,7 +23,7 @@ async def main():
     print("AI AGENT INTERACTIVE TEST")
     print("=" * 70)
     print(f"Environment: {settings.environment}")
-    print(f"LLM Provider: {'Groq' if settings.use_groq else 'Azure OpenAI'}")
+    print(f"LLM Provider: {'Gemini' if settings.use_gemini else 'Azure OpenAI'}")
     print(f"Vector Store: {'FAISS' if settings.use_faiss else 'Azure AI Search'}")
     print("=" * 70)
     print("\nType your questions below. Type 'exit' or 'quit' to end.\n")

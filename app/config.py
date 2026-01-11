@@ -4,9 +4,12 @@ Supports both local (Groq + FAISS) and production (Azure OpenAI + Azure AI Searc
 """
 
 import os
+import logging
 from typing import List, Optional
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+logger = logging.getLogger(__name__)
 
 
 class Settings(BaseSettings):
@@ -25,14 +28,23 @@ class Settings(BaseSettings):
     environment: str = Field(default="local", description="Environment: local or production")
     
     # ========================
-    # LOCAL ENVIRONMENT (Google Gemini)
+    # LLM PROVIDER SELECTION (Local Environment Only)
+    # ========================
+    llm_provider: str = Field(
+        default="gemini",
+        description="LLM provider for local environment: gemini or azure (production always uses azure)"
+    )
+    
+    # ========================
+    # LOCAL ENVIRONMENT - Option 1: Google Gemini
     # ========================
     google_gemini_api_key: Optional[str] = Field(default=None, description="Google Gemini API key")
     google_gemini_model: str = Field(default="gemini-1.5-flash", description="Gemini chat model")
     google_gemini_embedding_model: str = Field(default="models/embedding-001", description="Gemini embedding model")
     
     # ========================
-    # PRODUCTION ENVIRONMENT (Azure OpenAI)
+    # LOCAL ENVIRONMENT - Option 2: Azure OpenAI
+    # (Also used for PRODUCTION ENVIRONMENT)
     # ========================
     azure_openai_endpoint: Optional[str] = Field(default=None, description="Azure OpenAI endpoint")
     azure_openai_api_key: Optional[str] = Field(default=None, description="Azure OpenAI API key")
@@ -75,7 +87,16 @@ class Settings(BaseSettings):
     chunk_size: int = Field(default=500, description="Text chunk size in tokens")
     chunk_overlap: int = Field(default=50, description="Chunk overlap in tokens")
     top_k_results: int = Field(default=5, description="Number of top results to retrieve")
-    similarity_threshold: float = Field(default=0.65, description="Similarity threshold for retrieval")
+    default_similarity_threshold: float = Field(default=0.65, alias="SIMILARITY_THRESHOLD", description="Base similarity threshold")
+    
+    @property
+    def similarity_threshold(self) -> float:
+        """Get similarity threshold adjusted for provider."""
+        # Gemini embeddings (gecko) tend to have different distribution than OpenAI
+        if self.is_local and self.llm_provider == "gemini":
+            logger.info("Using adjusted similarity threshold for Gemini: 0.55")
+            return 0.55
+        return self.default_similarity_threshold
     
     # ========================
     # LLM CONFIGURATION
@@ -87,8 +108,17 @@ class Settings(BaseSettings):
     # ========================
     # VECTOR STORE
     # ========================
-    vector_store_path: str = Field(default="./data/vector_stores/faiss_index", description="FAISS index path")
+    vector_store_base_path: str = Field(default="./data/vector_stores/faiss_index", alias="VECTOR_STORE_PATH", description="Base FAISS index path")
     faiss_index_type: str = Field(default="IndexFlatL2", description="FAISS index type")
+    
+    @property
+    def vector_store_path(self) -> str:
+        """Get vector store path with provider suffix to avoid conflicts."""
+        base_path = self.vector_store_base_path
+        if self.is_local:
+            # Append provider to path (e.g., faiss_index_gemini)
+            return f"{base_path}_{self.llm_provider}"
+        return base_path
     
     # ========================
     # AZURE MONITORING (Production)
@@ -127,12 +157,16 @@ class Settings(BaseSettings):
     @property
     def use_gemini(self) -> bool:
         """Check if using Google Gemini."""
-        return self.is_local and self.google_gemini_api_key is not None
+        if self.is_production:
+            return False
+        return self.llm_provider == "gemini" and self.google_gemini_api_key is not None
     
     @property
     def use_azure(self) -> bool:
         """Check if using Azure OpenAI."""
-        return self.is_production and self.azure_openai_api_key is not None
+        if self.is_production:
+            return True
+        return self.llm_provider == "azure" and self.azure_openai_api_key is not None
     
     @property
     def use_faiss(self) -> bool:
@@ -145,12 +179,22 @@ class Settings(BaseSettings):
         return self.is_production and self.azure_search_api_key is not None
     
     def validate_config(self) -> None:
-        """Validate configuration based on environment."""
+        """Validate configuration based on environment and LLM provider."""
         if self.is_local:
-            if not self.google_gemini_api_key:
-                raise ValueError("GOOGLE_GEMINI_API_KEY is required for local environment")
+            # Local environment: validate based on selected LLM provider
+            if self.llm_provider == "gemini":
+                if not self.google_gemini_api_key:
+                    raise ValueError("GOOGLE_GEMINI_API_KEY is required when LLM_PROVIDER=gemini")
+            elif self.llm_provider == "azure":
+                if not self.azure_openai_api_key:
+                    raise ValueError("AZURE_OPENAI_API_KEY is required when LLM_PROVIDER=azure")
+                if not self.azure_openai_endpoint:
+                    raise ValueError("AZURE_OPENAI_ENDPOINT is required when LLM_PROVIDER=azure")
+            else:
+                raise ValueError(f"Invalid LLM_PROVIDER: {self.llm_provider}. Must be 'gemini' or 'azure'")
         
         if self.is_production:
+            # Production environment: always requires Azure
             if not self.azure_openai_api_key:
                 raise ValueError("AZURE_OPENAI_API_KEY is required for production environment")
             if not self.azure_openai_endpoint:

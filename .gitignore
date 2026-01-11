@@ -26,10 +26,12 @@ env/
 ENV/
 .venv
 
-# Environment variables
+# Environment variables - CRITICAL: Never commit credentials!
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
+*.env
+deployment/.env
 
 # IDEs
 .vscode/
@@ -43,16 +45,19 @@ ENV/
 *.log
 logs/
 
-# Data
+# Data & Vector Stores
 #data/
 *.faiss
 *.metadata
 *.pkl
 *.pickle
+data/vector_stores/
+data/faiss_index*
 
 # Testing
 .pytest_cache/
 .coverage
+coverage.xml
 htmlcov/
 .tox/
 .hypothesis/
@@ -61,11 +66,25 @@ htmlcov/
 .ipynb_checkpoints/
 *.ipynb
 
-# Azure
+# Azure - CRITICAL: Never commit credentials!
 .azure/
+
+# Terraform - CRITICAL: Contains sensitive state!
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+!terraform.tfvars.example
 
 # Docker
 .dockerignore
+
+# Build Artifacts - Don't commit large files
+*.zip
+app.zip
+deployment.zip
 
 # OS
 Thumbs.db
@@ -74,3 +93,14 @@ Thumbs.db
 # Project specific
 vectorstore/
 embeddings_cache/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# Large documents (optional - uncomment if you don't want to commit PDFs/DOCX)
+# *.pdf
+# *.docx

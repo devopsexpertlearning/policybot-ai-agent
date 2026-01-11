@@ -218,9 +218,9 @@ PolicyBot is designed to solve real-world enterprise challenges. Here are key sc
 ### AI/ML Stack
 
 **Local Development:**
-- **LLM**: Google Gemini 1.5-flash (fast, free tier)
-- **Embeddings**: Gemini embedding-001 (3072-dim)
-- **Vector Store**: FAISS (Facebook AI Similarity Search)
+- **LLM**: Google Gemini 1.5-flash (default) OR Azure OpenAI GPT-4
+- **Embeddings**: Gemini embedding-001 OR Azure text-embedding-ada-002
+- **Vector Store**: FAISS (separate indices: `faiss_index_gemini` / `faiss_index_azure`)
 
 **Production:**
 - **LLM**: Azure OpenAI GPT-4
@@ -496,54 +496,190 @@ chmod +x deploy.sh
 
 ### Current Limitations
 
-1. **Session Storage**
+#### Critical (High Priority)
+
+1. **Session Storage** 🔴
    - **Limitation**: In-memory, not distributed
-   - **Impact**: Single-instance only
-   - **Mitigation**: Use Redis/CosmosDB for multi-instance
+   - **Impact**: Single-instance only, sessions lost on restart
+   - **Mitigation**: Migrate to Redis or Azure CosmosDB for distributed sessions
+   - **Effort**: Medium (2-3 days)
 
-2. **Chunking Strategy**
+2. **No Authentication** 🔴
+   - **Limitation**: API publicly accessible without authentication
+   - **Impact**: Security risk, anyone can query, potential abuse
+   - **Mitigation**: Implement JWT authentication or API key system
+   - **Effort**: Medium (2-3 days)
+
+3. **No Rate Limiting** 🔴
+   - **Limitation**: No request throttling per user/IP
+   - **Impact**: Vulnerable to abuse, uncontrolled costs, DDoS risk
+   - **Mitigation**: Add rate limiting middleware (e.g., SlowAPI)
+   - **Effort**: Low (1 day)
+
+#### Important (Medium Priority)
+
+4. **Chunking Strategy** 🟡
    - **Limitation**: Simple word-based splitting
-   - **Impact**: May split mid-sentence
-   - **Improvement**: Implement semantic chunking
+   - **Impact**: May split mid-sentence, reduced RAG accuracy
+   - **Mitigation**: Implement semantic chunking with sentence boundaries
+   - **Effort**: Medium (2-3 days)
 
-3. **No Authentication**
-   - **Limitation**: API publicly accessible
-   - **Impact**: Anyone can query
-   - **Improvement**: Add JWT auth or API keys
+5. **Limited Test Coverage** 🟡
+   - **Limitation**: ~30% estimated coverage, no integration tests
+   - **Impact**: Harder to maintain, refactor, and ensure quality
+   - **Mitigation**: Increase to 80%+ coverage with mocked LLM calls
+   - **Effort**: High (1-2 weeks)
 
-4. **Basic Monitoring**
-   - **Limitation**: Application Insights only
-   - **Impact**: Limited custom metrics
-   - **Improvement**: Add Prometheus, Grafana
+6. **No Caching Layer** 🟡
+   - **Limitation**: No query result caching
+   - **Impact**: Repeated queries hit LLM every time, higher costs
+   - **Mitigation**: Add Redis caching with TTL-based expiration
+   - **Effort**: Medium (2-3 days)
 
-5. **Single Language**
+7. **No Authorization/RBAC** 🟡
+   - **Limitation**: No role-based access control
+   - **Impact**: All authenticated users have same permissions
+   - **Mitigation**: Implement RBAC for admin vs user endpoints
+   - **Effort**: Medium (3-4 days)
+
+#### Nice to Have (Low Priority)
+
+8. **Basic Monitoring** 🟢
+   - **Limitation**: Application Insights only, limited custom metrics
+   - **Impact**: Harder to debug and optimize performance
+   - **Mitigation**: Add Prometheus metrics and Grafana dashboards
+   - **Effort**: Medium (3-4 days)
+
+9. **Single Language** 🟢
    - **Limitation**: English only
    - **Impact**: Can't handle multilingual queries
-   - **Improvement**: Add language detection and translation
+   - **Mitigation**: Add language detection and translation
+   - **Effort**: High (1-2 weeks)
+
+10. **No Input Sanitization** 🟢
+    - **Limitation**: Beyond Pydantic validation
+    - **Impact**: Potential for prompt injection attacks
+    - **Mitigation**: Add input sanitization and validation rules
+    - **Effort**: Low (1-2 days)
+
+11. **No Secrets Management** 🟢
+    - **Limitation**: Secrets in environment variables only
+    - **Impact**: Less secure, harder to rotate secrets
+    - **Mitigation**: Integrate Azure Key Vault
+    - **Effort**: Low (1-2 days)
+
+12. **No Advanced RAG Features** 🟢
+    - **Limitation**: Basic vector search only
+    - **Impact**: Could improve accuracy with hybrid search, re-ranking
+    - **Mitigation**: Add BM25 hybrid search, cross-encoder re-ranking
+    - **Effort**: High (1-2 weeks)
+
+---
 
 ### Planned Improvements
 
-#### Short Term (1-2 months)
-- [ ] Redis for distributed sessions
-- [ ] Hybrid search (BM25 + vector)
-- [ ] JWT authentication
-- [ ] Rate limiting per user
-- [ ] Admin dashboard
+#### 🚀 Immediate Actions (Week 1)
+**Focus: Security & Stability**
+- [ ] Add JWT authentication with token validation
+- [ ] Implement rate limiting (60 requests/minute per user)
+- [ ] Add input sanitization for prompt injection prevention
+- [ ] Improve error handling with structured error responses
+- [ ] Add API key support as alternative to JWT
 
-#### Medium Term (3-6 months)
-- [ ] Multi-document reasoning
+#### 📅 Short Term (Month 1)
+**Focus: Scalability & Quality**
+- [ ] Migrate to Redis for distributed sessions
+- [ ] Increase test coverage to 80%+ with mocked LLM calls
+- [ ] Add query result caching with Redis
+- [ ] Implement semantic chunking with sentence boundaries
+- [ ] Add integration tests for end-to-end workflows
+- [ ] Integrate Azure Key Vault for secrets management
+
+#### 📅 Medium Term (Months 2-3)
+**Focus: Features & Observability**
+- [ ] Hybrid search (BM25 + vector similarity)
+- [ ] Cross-encoder re-ranking for better relevance
+- [ ] Prometheus metrics + Grafana dashboards
+- [ ] Admin dashboard for management and analytics
+- [ ] Role-based access control (RBAC)
 - [ ] Query expansion and reformulation
-- [ ] Cross-encoder re-ranking
 - [ ] Conversation summarization
-- [ ] Export chat history
+- [ ] Export chat history feature
 
-#### Long Term (6-12 months)
-- [ ] Fine-tuned models on company data
-- [ ] Multi-agent collaboration
-- [ ] Real-time document updates
-- [ ] Voice interface
-- [ ] Mobile application
-- [ ] Advanced analytics dashboard
+#### 📅 Long Term (Months 4-6)
+**Focus: Advanced Features**
+- [ ] Multi-document reasoning and synthesis
+- [ ] Fine-tuned embeddings on company data
+- [ ] Real-time document updates and indexing
+- [ ] Multi-agent collaboration system
+- [ ] Advanced analytics and reporting
+- [ ] A/B testing framework for prompts
+- [ ] Multi-language support with translation
+- [ ] Voice interface integration
+
+#### 📅 Future Vision (6-12 months)
+**Focus: Enterprise & Scale**
+- [ ] Mobile application (iOS/Android)
+- [ ] Multi-tenancy support for SaaS
+- [ ] Advanced security (SSO, SAML, OAuth)
+- [ ] Compliance features (audit logs, data retention)
+- [ ] Custom model fine-tuning pipeline
+- [ ] Federated learning for privacy
+- [ ] Edge deployment support
+- [ ] GraphQL API alternative
+
+---
+
+### Implementation Priority Matrix
+
+| Priority | Limitation | Impact | Effort | ROI |
+|----------|-----------|--------|--------|-----|
+| **P0** | Authentication | High | Medium | High |
+| **P0** | Rate Limiting | High | Low | Very High |
+| **P0** | Session Storage | High | Medium | High |
+| **P1** | Test Coverage | Medium | High | High |
+| **P1** | Caching Layer | Medium | Medium | High |
+| **P1** | Semantic Chunking | Medium | Medium | Medium |
+| **P2** | RBAC | Medium | Medium | Medium |
+| **P2** | Monitoring | Medium | Medium | Medium |
+| **P2** | Hybrid Search | Medium | High | Medium |
+| **P3** | Multi-language | Low | High | Low |
+| **P3** | Secrets Vault | Low | Low | Medium |
+
+---
+
+### Quick Wins (High ROI, Low Effort)
+
+These improvements provide maximum value with minimal effort:
+
+1. **Rate Limiting** (1 day) - Prevents abuse, controls costs
+2. **Input Sanitization** (1-2 days) - Improves security
+3. **Azure Key Vault** (1-2 days) - Better secrets management
+4. **Structured Errors** (1 day) - Better debugging and UX
+5. **Health Check Enhancement** (1 day) - Verify LLM connectivity
+
+---
+
+### Breaking Changes to Consider
+
+When implementing improvements, be aware of potential breaking changes:
+
+- **Authentication**: Existing API clients will need to authenticate
+- **Rate Limiting**: High-volume users may need quota increases
+- **Session Storage**: Migration to Redis requires data migration strategy
+- **RBAC**: Existing users may need role assignments
+
+---
+
+### Community Contributions Welcome
+
+We welcome contributions in these areas:
+- 🧪 Test coverage improvements
+- 📝 Documentation enhancements
+- 🔧 Bug fixes and optimizations
+- ✨ New features from the roadmap
+- 🌍 Multi-language support
+- 🎨 UI/UX improvements
 
 ---
 

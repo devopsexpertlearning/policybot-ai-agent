@@ -9,24 +9,6 @@ output "resource_group_location" {
   value       = azurerm_resource_group.main.location
 }
 
-# Container Registry Outputs
-output "acr_login_server" {
-  description = "Login server for Azure Container Registry"
-  value       = azurerm_container_registry.acr.login_server
-}
-
-output "acr_admin_username" {
-  description = "Admin username for ACR"
-  value       = azurerm_container_registry.acr.admin_username
-  sensitive   = true
-}
-
-output "acr_admin_password" {
-  description = "Admin password for ACR"
-  value       = azurerm_container_registry.acr.admin_password
-  sensitive   = true
-}
-
 # App Service Outputs
 output "app_service_name" {
   description = "Name of the App Service"
@@ -56,13 +38,13 @@ output "openai_api_key" {
 }
 
 output "openai_deployment_name" {
-  description = "Name of the GPT-4 deployment"
-  value       = azurerm_cognitive_deployment.gpt4.name
+  description = "Name of the GPT deployment"
+  value       = var.openai_deployment_name
 }
 
 output "openai_embedding_deployment_name" {
   description = "Name of the embedding deployment"
-  value       = azurerm_cognitive_deployment.embedding.name
+  value       = var.openai_embedding_deployment_name
 }
 
 # Azure AI Search Outputs
@@ -107,10 +89,13 @@ output "deployment_instructions" {
     ✅ Infrastructure provisioned successfully!
     
     Next steps:
-    1. Build and push Docker image:
-       docker build -t ${azurerm_container_registry.acr.login_server}/policybot-ai-agent:latest -f deployment/Dockerfile .
-       az acr login --name ${azurerm_container_registry.acr.name}
-       docker push ${azurerm_container_registry.acr.login_server}/policybot-ai-agent:latest
+    1. Deploy Python code via ZIP:
+       cd /home/ubuntu/Desktop/policybot-ai-agent
+       zip -r app.zip app/ data/ scripts/ requirements.txt
+       az webapp deployment source config-zip \
+         --resource-group ${azurerm_resource_group.main.name} \
+         --name ${azurerm_linux_web_app.main.name} \
+         --src app.zip
     
     2. Initialize vector store:
        python scripts/setup_vectorstore.py

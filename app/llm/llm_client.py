@@ -108,16 +108,31 @@ class LLMClient:
                 )
                 
                 try:
-                    return response.text.strip()
-                except Exception:
-                    # Handle multi-part responses (e.g. safety blocks)
-                    if response.parts:
-                        return "".join([part.text for part in response.parts]).strip()
-                    elif response.candidates:
-                         # Fallback to first candidate parts
-                         parts = response.candidates[0].content.parts
-                         return "".join([part.text for part in parts]).strip()
-                    raise
+                    # Method 1: Check candidates and parts (Most robust)
+                    if response.candidates:
+                        candidate = response.candidates[0]
+                        if candidate.content and candidate.content.parts:
+                            text = "".join([part.text for part in candidate.content.parts])
+                            if text.strip():
+                                return text.strip()
+                    
+                    # Method 2: Try accessing text property safely
+                    try:
+                        if response.text:
+                            return response.text.strip()
+                    except ValueError:
+                        # expected for multi-part responses
+                        pass
+                        
+                    # Method 3: Check prompt feedback if blocked
+                    if response.prompt_feedback:
+                        logger.warning(f"Gemini prompt feedback: {response.prompt_feedback}")
+                        
+                    return ""
+                except Exception as e:
+                    logger.error(f"Error parsing Gemini response: {e}")
+                    # Don't raise, just return empty string to allow fallback logic in caller
+                    return ""
             
             else:  # Azure OpenAI
                 messages = []
@@ -191,15 +206,25 @@ class LLMClient:
                 )
                 
                 try:
-                    return response.text.strip()
-                except Exception:
-                    # Handle multi-part responses
-                    if response.parts:
-                        return "".join([part.text for part in response.parts]).strip()
-                    elif response.candidates:
-                         parts = response.candidates[0].content.parts
-                         return "".join([part.text for part in parts]).strip()
-                    raise
+                    # Method 1: Check candidates and parts
+                    if response.candidates:
+                        candidate = response.candidates[0]
+                        if candidate.content and candidate.content.parts:
+                            text = "".join([part.text for part in candidate.content.parts])
+                            if text.strip():
+                                return text.strip()
+                                
+                    # Method 2: Try accessing text property safely
+                    try:
+                        if response.text:
+                            return response.text.strip()
+                    except ValueError:
+                        pass
+
+                    return ""
+                except Exception as e:
+                    logger.error(f"Error parsing Gemini response history: {e}")
+                    return ""
             
             else:  # Azure OpenAI
                 response = await self.client.chat.completions.create(
@@ -315,6 +340,8 @@ class LLMClient:
                 return result['embedding']
             
             else:  # Azure OpenAI
+                # Small delay to avoid rate limits on standard/free tiers
+                await asyncio.sleep(5)
                 response = await self.client.embeddings.create(
                     model=self.embedding_model,
                     input=text
@@ -351,13 +378,30 @@ class LLMClient:
                 # Small delay to avoid rate limiting
                 await asyncio.sleep(0.1)
         else:
-            # Azure OpenAI supports batching
+            # Azure OpenAI supports native batching (one API call per batch)
+            # This is much more efficient and avoids rate limits
             for i in range(0, len(texts), batch_size):
                 batch = texts[i:i + batch_size]
-                batch_embeddings = await asyncio.gather(
-                    *[self.generate_embedding(text) for text in batch]
-                )
-                all_embeddings.extend(batch_embeddings)
+                try:
+                    response = await self.client.embeddings.create(
+                        model=self.embedding_model,
+                        input=batch
+                    )
+                    # Extract embeddings in order
+                    # response.data is sorted by index
+                    batch_embeddings = [item.embedding for item in response.data]
+                    all_embeddings.extend(batch_embeddings)
+                    
+                    # Small delay between batches
+                    await asyncio.sleep(0.2)
+                except Exception as e:
+                    logger.error(f"Error generating batch embeddings: {e}")
+                    # Fallback to individual processing if batch fails
+                    logger.info("Falling back to individual processing for batch")
+                    fallback_embeddings = await asyncio.gather(
+                        *[self.generate_embedding(text) for text in batch]
+                    )
+                    all_embeddings.extend(fallback_embeddings)
         
         return all_embeddings
 

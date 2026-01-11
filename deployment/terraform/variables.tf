@@ -21,23 +21,7 @@ variable "tags" {
   }
 }
 
-# Container Registry Variables
-variable "acr_name" {
-  description = "Name of the Azure Container Registry (must be globally unique)"
-  type        = string
-  default     = "policybotregistry"
-}
 
-variable "acr_sku" {
-  description = "SKU for Azure Container Registry"
-  type        = string
-  default     = "Standard"
-  
-  validation {
-    condition     = contains(["Basic", "Standard", "Premium"], var.acr_sku)
-    error_message = "ACR SKU must be Basic, Standard, or Premium."
-  }
-}
 
 # App Service Variables
 variable "app_service_plan_name" {
@@ -49,11 +33,11 @@ variable "app_service_plan_name" {
 variable "app_service_plan_sku" {
   description = "SKU for App Service Plan"
   type        = string
-  default     = "P1v2"
+  default     = "F1"
   
   validation {
-    condition     = can(regex("^(B[1-3]|S[1-3]|P[1-3]v[2-3]|I[1-3]v2)$", var.app_service_plan_sku))
-    error_message = "Invalid App Service Plan SKU."
+    condition     = can(regex("^(F1|B[1-3]|S[1-3]|P[1-3]v[2-3]|I[1-3]v2)$", var.app_service_plan_sku))
+    error_message = "Invalid App Service Plan SKU. Must be F1, B1-B3, S1-S3, P1v2-P3v3, or I1v2-I3v2."
   }
 }
 
@@ -66,7 +50,7 @@ variable "app_service_name" {
 variable "app_service_always_on" {
   description = "Keep the app always on"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "cors_allowed_origins" {
@@ -104,6 +88,7 @@ variable "openai_location" {
   }
 }
 
+
 variable "openai_sku" {
   description = "SKU for Azure OpenAI"
   type        = string
@@ -130,19 +115,19 @@ variable "openai_allowed_ips" {
 variable "openai_deployment_name" {
   description = "Name of the GPT-4 deployment"
   type        = string
-  default     = "gpt-4"
+  default     = "gpt-4o"
 }
 
 variable "openai_model_name" {
   description = "OpenAI model name for chat"
   type        = string
-  default     = "gpt-4"
+  default     = "gpt-4o"
 }
 
 variable "openai_model_version" {
   description = "OpenAI model version for chat"
   type        = string
-  default     = "1106-Preview"
+  default     = "2024-05-13"
 }
 
 variable "openai_deployment_capacity" {

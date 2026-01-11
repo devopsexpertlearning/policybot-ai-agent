@@ -267,11 +267,21 @@ class AzureAISearchVectorStore:
         # Prepare documents for upload
         search_documents = []
         for i, (embedding, doc) in enumerate(zip(embeddings, documents)):
+            metadata = doc.get("metadata", {})
+            
+            # Sanitize source name for Azure Search key requirements
+            # Keys can only contain letters, digits, underscore, dash, or equal sign
+            source_name = metadata.get('source', 'unknown')
+            sanitized_source = source_name.replace('/', '_').replace(' ', '_').replace('.', '_')
+            
+            # Only include fields that exist in the index schema
             search_doc = {
-                "id": f"{doc['metadata'].get('source', 'unknown')}_{i}",
+                "id": f"{sanitized_source}_{i}",
                 "content": doc["content"],
                 "embedding": embedding,
-                **doc["metadata"]
+                "source": metadata.get("source", "unknown"),
+                "page": metadata.get("page", 0),  # Default to 0 for non-PDF files
+                "chunk_id": metadata.get("chunk_id", str(i))
             }
             search_documents.append(search_doc)
         
@@ -290,13 +300,17 @@ class AzureAISearchVectorStore:
         threshold: Optional[float] = None
     ) -> List[Dict[str, Any]]:
         """Search using vector similarity."""
+        from azure.search.documents.models import VectorizedQuery
+        
+        vector_query = VectorizedQuery(
+            vector=query_embedding,
+            k_nearest_neighbors=top_k,
+            fields="embedding"
+        )
+        
         results = self.search_client.search(
             search_text=None,
-            vector_queries=[{
-                "vector": query_embedding,
-                "k_nearest_neighbors": top_k,
-                "fields": "embedding"
-            }],
+            vector_queries=[vector_query],
             select=["content", "source", "page", "chunk_id"]
         )
         

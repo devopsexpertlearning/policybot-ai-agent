@@ -1,0 +1,9 @@
+# Prevent accidental commit of sensitive files
+.env filter=git-crypt diff=git-crypt
+*.tfstate filter=git-crypt diff=git-crypt
+*.tfvars filter=git-crypt diff=git-crypt
+
+# Mark large files
+*.zip binary
+*.pdf binary
+*.docx binary

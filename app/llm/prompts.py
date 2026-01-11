@@ -36,8 +36,17 @@ CRITICAL INSTRUCTIONS:
 Context documents will be provided below."""
 
     # Decision-making prompt
-    INTENT_CLASSIFICATION = """Classify the query into: GENERAL, POLICY, or CLARIFICATION.
+    INTENT_CLASSIFICATION = """You are a decision engine for a company policy AI agent.
+    
+Classify the query into exactly one of these three categories:
+1. POLICY: Questions about company rules, benefits, leave, expenses, HR procedures, specific company documents.
+2. GENERAL: General knowledge questions (coding, history, science, facts) that don't need company private info.
+3. CLARIFICATION: Queries that are too vague, ambiguous, or meaningless to answer.
 
+IMPORTANT: If conversation context is provided, use it to understand follow-up questions.
+For example, if the user previously asked about vacation days, "And how many after 4 years?" should be classified as POLICY.
+
+Examples:
 Query: "What is the sick leave policy?"
 Category: POLICY
 
@@ -50,13 +59,19 @@ Category: POLICY
 Query: "What is the capital of France?"
 Category: GENERAL
 
+Query: "Explain the difference between Python and JavaScript"
+Category: GENERAL
+
+Query: "What is an HSA?"
+Category: POLICY
+
 Query: "I don't understand"
 Category: CLARIFICATION
 
 Query: "Write a python script to parse CSV"
 Category: GENERAL
 
-Query: "{query}"
+User Query: {query}
 Category:"""
 
     # RAG prompt with context
@@ -98,7 +113,7 @@ Provide a concise summary highlighting:
 Summary:"""
 
     @staticmethod
-    def format_context(chunks: List[Dict[str, Any]], max_length: int = 3000) -> str:
+    def format_context(chunks: List[Dict[str, Any]], max_length: int = 20000) -> str:
         """Format retrieved chunks into context string."""
         context_parts = []
         
@@ -137,13 +152,21 @@ Summary:"""
         return "\n".join(history_parts)
     
     @staticmethod
-    def get_rag_prompt(query: str, chunks: List[Dict[str, Any]]) -> str:
+    def get_rag_prompt(query: str, chunks: List[Dict[str, Any]], conversation_history: str = "") -> str:
         """Get RAG prompt with formatted context."""
         context = PromptTemplates.format_context(chunks)
-        return PromptTemplates.RAG_WITH_CONTEXT.format(
-            context=context,
-            query=query
-        )
+        
+        # Build the prompt with optional conversation history
+        if conversation_history:
+            return f"""Previous conversation:
+{conversation_history}
+
+{PromptTemplates.RAG_WITH_CONTEXT.format(context=context, query=query)}"""
+        else:
+            return PromptTemplates.RAG_WITH_CONTEXT.format(
+                context=context,
+                query=query
+            )
     
     @staticmethod
     def get_direct_prompt(query: str, history: List[Dict[str, str]]) -> str:
@@ -155,9 +178,15 @@ Summary:"""
         )
     
     @staticmethod
-    def get_intent_prompt(query: str) -> str:
+    def get_intent_prompt(query: str, context: str = "") -> str:
         """Get intent classification prompt."""
-        return PromptTemplates.INTENT_CLASSIFICATION.format(query=query)
+        prompt = PromptTemplates.INTENT_CLASSIFICATION.format(query=query)
+        if context:
+            prompt = prompt.replace(
+                "User Query:",
+                f"Conversation Context:{context}\n\nCurrent User Query:"
+            )
+        return prompt
 
 
 # Few-shot examples for better performance

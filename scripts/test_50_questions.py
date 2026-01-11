@@ -134,7 +134,7 @@ async def main():
         status = "✅" if result['passed'] else "❌"
         print(f"{status} [{len(results)}/{len(test_cases)}] {category}: {query[:60]}...")
         
-        await asyncio.sleep(0.3)  # Small delay to avoid rate limiting
+        await asyncio.sleep(3.0)  # Moderate delay to avoid Azure rate limits
     
     # Calculate statistics
     print("\n" + "="*80)

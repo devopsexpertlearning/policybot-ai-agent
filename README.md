@@ -754,8 +754,9 @@ This project is for portfolio and interview demonstration purposes.
 - **ReDoc**: http://localhost:8000/redoc
 
 ### Contact
-- **Email**: [your-email@example.com]
-- **GitHub**: [github.com/yourusername/policybot-ai-agent]
+- **GitHub**: https://github.com/devopsexpertlearning/policybot-ai-agent
+
+- **Author**: Ravi Kumar Kushwaha
 
 ---
 

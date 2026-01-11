@@ -28,78 +28,7 @@ PolicyBot is an AI agent that intelligently answers questions about company poli
 
 ## 📐 Architecture Overview
 
-```mermaid
-graph TB
-    subgraph "Client Layer"
-        User[User/Application]
-    end
-    
-    subgraph "API Layer"
-        FastAPI[FastAPI Server<br/>Port 8000]
-        Routes[API Routes<br/>/ask, /health, /stats]
-    end
-    
-    subgraph "Agent Layer"
-        Agent[AI Agent Core]
-        Decision{Decision Engine<br/>Query Classifier}
-        Memory[Session Memory<br/>Conversation History]
-        Tools[Tool Executor<br/>search_documents]
-    end
-    
-    subgraph "Response Generation"
-        DirectLLM[Direct LLM<br/>Response]
-        RAGPipeline[RAG Pipeline]
-    end
-    
-    subgraph "RAG Components"
-        DocProcessor[Document<br/>Processor]
-        Embeddings[Embedding<br/>Generator]
-        Retriever[Document<br/>Retriever]
-    end
-    
-    subgraph "LLM Providers - Environment Based"
-        subgraph Local[Local Development]
-            Gemini[Google Gemini<br/>gemini-1.5-flash]
-            FAISS[(FAISS<br/>Vector Store)]
-        end
-        
-        subgraph Production[Production]
-            Azure[Azure OpenAI<br/>GPT-4]
-            AzureSearch[(Azure AI Search<br/>Vector Store)]
-        end
-    end
-    
-    User --> FastAPI
-    FastAPI --> Routes
-    Routes --> Agent
-    Agent --> Decision
-    Decision -->|GENERAL| DirectLLM
-    Decision -->|POLICY| RAGPipeline
-    Decision -->|CLARIFICATION| Agent
-    Agent --> Memory
-    Agent --> Tools
-    
-    DirectLLM --> Gemini
-    DirectLLM --> Azure
-    
-    RAGPipeline --> Retriever
-    Retriever --> FAISS
-    Retriever --> AzureSearch
-    Retriever --> Gemini
-    Retriever --> Azure
-    
-    DocProcessor --> Embeddings
-    Embeddings --> Gemini
-    Embeddings --> Azure
-    Embeddings --> FAISS
-    Embeddings --> AzureSearch
-    
-    style Decision fill:#ff9,stroke:#333,stroke-width:3px
-    style Gemini fill:#4285f4,stroke:#333,color:#fff
-    style Azure fill:#0078d4,stroke:#333,color:#fff
-    style FAISS fill:#f4b400,stroke:#333
-    style AzureSearch fill:#0078d4,stroke:#333,color:#fff
-```
+![Architecture Diagram](docs/architecture.png)
 
 **Component Layers:**
 1. **API Layer**: FastAPI with OpenAPI docs

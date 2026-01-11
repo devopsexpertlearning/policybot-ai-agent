@@ -10,7 +10,8 @@ This guide covers deployment for both local development and Azure production env
 
 ### Prerequisites
 - Python 3.11+
-- Google Gemini API key (free from https://makersuite.google.com/app/apikey)
+- **For local development (default)**: Google Gemini API key (free from https://makersuite.google.com/app/apikey)
+- **For local development (optional)**: Azure OpenAI access (endpoint, API key, deployment names)
 
 ### Step 1: Environment Setup
 
@@ -35,10 +36,23 @@ pip install -r requirements.txt
 copy .env.example .env
 ```
 
-Edit `.env` and add your Gemini API key:
+Edit `.env` and configure your LLM provider:
+
+**Option 1: Google Gemini (Default - Free)**
 ```bash
 ENVIRONMENT=local
+LLM_PROVIDER=gemini
 GOOGLE_GEMINI_API_KEY=your_actual_key_here
+```
+
+**Option 2: Azure OpenAI (Alternative)**
+```bash
+ENVIRONMENT=local
+LLM_PROVIDER=azure
+AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
+AZURE_OPENAI_API_KEY=your_azure_key_here
+AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4
+AZURE_OPENAI_EMBEDDING_DEPLOYMENT=text-embedding-ada-002
 ```
 
 ### Step 3: Initialize Vector Store

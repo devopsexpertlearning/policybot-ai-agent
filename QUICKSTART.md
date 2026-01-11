@@ -2,7 +2,8 @@
 
 ## Prerequisites
 - Python 3.11+
-- Google Gemini API key (free at https://makersuite.google.com/app/apikey)
+- **Option 1 (Default)**: Google Gemini API key (free at https://makersuite.google.com/app/apikey)
+- **Option 2 (Alternative)**: Azure OpenAI access (endpoint, API key, deployment names)
 
 ## 5-Minute Local Setup
 
@@ -38,27 +39,50 @@ pip install -r requirements-dev.txt
 ```
 
 ### Step 2: Configure API Key
-#### Linux / macOS
+
+**Choose your LLM provider for local development:**
+
+#### Option 1: Google Gemini (Default - Recommended for Free Development)
+
+##### Linux / macOS
 ```bash
 # Copy environment template
 cp .env.example .env
 
 # Edit .env file and add your Google Gemini API key:
 # ENVIRONMENT=local
+# LLM_PROVIDER=gemini
 # GOOGLE_GEMINI_API_KEY=your_actual_gemini_api_key_here
 ```
 
-#### Windows
+##### Windows
 ```powershell
 # Copy environment template
 copy .env.example .env
 
 # Edit .env file and add your Google Gemini API key:
 # ENVIRONMENT=local
+# LLM_PROVIDER=gemini
 # GOOGLE_GEMINI_API_KEY=your_actual_gemini_api_key_here
 ```
 
 **Get Free Key**: https://makersuite.google.com/app/apikey
+
+#### Option 2: Azure OpenAI (Alternative - Production-like Local Setup)
+
+If you prefer to use Azure OpenAI for local development:
+
+```bash
+# Edit .env file with Azure credentials:
+# ENVIRONMENT=local
+# LLM_PROVIDER=azure
+# AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
+# AZURE_OPENAI_API_KEY=your_azure_api_key
+# AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4
+# AZURE_OPENAI_EMBEDDING_DEPLOYMENT=text-embedding-ada-002
+```
+
+> **Note**: The vector store setup script will automatically create provider-specific indices (`faiss_index_gemini` or `faiss_index_azure`) to avoid embedding dimension conflicts.
 
 ### Step 3: Initialize Vector Store
 #### Linux / macOS

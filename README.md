@@ -14,7 +14,7 @@ PolicyBot is an AI agent that intelligently answers questions about company poli
 ## 🎯 Features
 
 ✨ **Intelligent Decision Engine** - Automatically classifies queries and routes to optimal response strategy  
-🔄 **Dual Environment** - Google Gemini (local dev) + Azure OpenAI (production)  
+🔄 **Dual Environment** - Local (Gemini or Azure OpenAI) + Production (Azure OpenAI only)  
 📚 **RAG Pipeline** - Semantic search with FAISS (local) or Azure AI Search (production)  
 💬 **Session Memory** - Maintains conversation context across interactions  
 🛠️ **Tool Calling** - Extensible tool system (document search, calculations)  
@@ -116,7 +116,8 @@ graph TB
 
 ### Prerequisites
 - Python 3.11+
-- Google Gemini API key ([Get free key](https://makersuite.google.com/app/apikey))
+- **For local development (default)**: Google Gemini API key ([Get free key](https://makersuite.google.com/app/apikey))
+- **For local development (optional)**: Azure OpenAI access (endpoint, API key, deployment names)
 
 ### 5-Minute Setup
 
@@ -130,9 +131,10 @@ pip install -r requirements.txt
 # For testing/dev:
 pip install -r requirements-dev.txt
 
-# 2. Configure (add your Gemini API key)
+# 2. Configure (choose your LLM provider)
 cp .env.example .env
-# Edit .env: GOOGLE_GEMINI_API_KEY=your_key_here
+# Edit .env: For Gemini (default): GOOGLE_GEMINI_API_KEY=your_key_here
+# Or for Azure OpenAI: LLM_PROVIDER=azure, AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_API_KEY, etc.
 
 # 3. Initialize vector store
 python scripts/setup_vectorstore.py
@@ -154,9 +156,10 @@ pip install -r requirements.txt
 # For testing/dev:
 pip install -r requirements-dev.txt
 
-# 2. Configure (add your Gemini API key)
+# 2. Configure (choose your LLM provider)
 copy .env.example .env
-# Edit .env: GOOGLE_GEMINI_API_KEY=your_key_here
+# Edit .env: For Gemini (default): GOOGLE_GEMINI_API_KEY=your_key_here
+# Or for Azure OpenAI: LLM_PROVIDER=azure, AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_API_KEY, etc.
 
 # 3. Initialize vector store
 python scripts\setup_vectorstore.py
@@ -217,15 +220,15 @@ PolicyBot is designed to solve real-world enterprise challenges. Here are key sc
 
 ### AI/ML Stack
 
-**Local Development:**
-- **LLM**: Google Gemini 1.5-flash (default) OR Azure OpenAI GPT-4
-- **Embeddings**: Gemini embedding-001 OR Azure text-embedding-ada-002
-- **Vector Store**: FAISS (separate indices: `faiss_index_gemini` / `faiss_index_azure`)
+**Local Development (Configurable via `LLM_PROVIDER` env var):**
+- **LLM**: Google Gemini 1.5-flash (default, `LLM_PROVIDER=gemini`) OR Azure OpenAI GPT-4 (`LLM_PROVIDER=azure`)
+- **Embeddings**: Gemini embedding-001 (768-dim) OR Azure text-embedding-ada-002 (1536-dim)
+- **Vector Store**: FAISS (local file storage, separate indices per provider: `faiss_index_gemini` / `faiss_index_azure`)
 
-**Production:**
-- **LLM**: Azure OpenAI GPT-4
+**Production (Azure Only - Not Configurable):**
+- **LLM**: Azure OpenAI GPT-4 (always)
 - **Embeddings**: text-embedding-ada-002 (1536-dim)
-- **Vector Store**: Azure AI Search (managed, scalable)
+- **Vector Store**: Azure AI Search (managed, scalable, cloud-based)
 
 ### Infrastructure
 - **Containerization**: Docker with multi-stage builds
@@ -299,8 +302,8 @@ policybot-ai-agent/
 
 ## 🎨 Design Decisions
 
-### Why Google Gemini for Local Development?
-**Decision**: Use Google Gemini instead of Groq or local models
+### Why Google Gemini as Default for Local Development?
+**Decision**: Use Google Gemini as the default LLM for local development (with Azure OpenAI as an alternative option)
 
 **Rationale**:
 - ✅ Fast inference (optimized for speed)
@@ -308,15 +311,16 @@ policybot-ai-agent/
 - ✅ Simple setup (just API key needed)
 - ✅ Good quality for development/testing
 - ✅ Easy switch to Azure for production
+- ✅ Developers can still use Azure OpenAI locally if preferred (set `LLM_PROVIDER=azure`)
 
 ### Why Dual Environment Support?
-**Decision**: Separate local (Gemini + FAISS) and production (Azure + AI Search)
+**Decision**: Separate local (Gemini OR Azure OpenAI + FAISS) and production (Azure OpenAI only + AI Search)
 
 **Rationale**:
-- **Local**: Fast iteration, zero cloud costs, no Azure resources needed
-- **Production**: Enterprise SLAs, compliance, scalability, managed services
-- **Flexibility**: Environment switching via single config variable
-- **Cost-Effective**: Developers don't need Azure subscriptions
+- **Local**: Fast iteration, zero cloud costs with Gemini (default), or use Azure for testing production setup
+- **Production**: Enterprise SLAs, compliance, scalability, managed services with Azure OpenAI (required)
+- **Flexibility**: Local environment supports both providers via `LLM_PROVIDER` config variable
+- **Cost-Effective**: Developers don't need Azure subscriptions (Gemini free tier), but can opt-in if needed
 
 ### Why FAISS vs Azure AI Search?
 | Feature | FAISS (Local) | Azure AI Search (Production) |

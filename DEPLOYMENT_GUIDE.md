@@ -1,14 +1,16 @@
 # Complete Azure Deployment Guide - PolicyBot AI Agent
 
 ## 📋 Overview
-This guide provides step-by-step instructions to deploy the PolicyBot AI Agent (or any RAG-based AI agent) to Azure using Terraform and Azure AI Search.
+This guide provides step-by-step instructions to deploy the PolicyBot AI Agent to Azure (production) or run locally with your choice of LLM provider (Gemini or Azure OpenAI).
 
-## 🎯 What Gets Deployed
+## 🎯 What Gets Deployed (Azure Production)
 - **Azure App Service** (F1 Free tier) - Hosts the FastAPI application
-- **Azure OpenAI** - GPT-4o for responses + text-embedding-ada-002 for vectors
+- **Azure OpenAI** - GPT-4o for responses + text-embedding-ada-002 for vectors (required for production)
 - **Azure AI Search** - Vector database for document storage and semantic search
 - **Application Insights** - Monitoring and logging
 - **Log Analytics Workspace** - Centralized logging
+
+**Note**: Production environment always uses Azure OpenAI. Local development supports both Gemini (default, free) and Azure OpenAI (optional).
 
 ## ✅ Prerequisites
 - Azure CLI installed and authenticated (`az login`)

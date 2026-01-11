@@ -143,12 +143,14 @@ graph TB
 
 | Feature | Local (Development) | Production |
 |---------|-------------------|------------|
-| **LLM** | Gemini (default) OR Azure OpenAI | Azure OpenAI GPT-4 |
-| **Speed** | Fast (Gemini) / Depends (Azure) | Robust |
+| **Provider Choice** | **Configurable**: Gemini (default) OR Azure OpenAI | **Fixed**: Azure OpenAI only |
+| **LLM** | Gemini 1.5-flash OR Azure OpenAI GPT-4 | Azure OpenAI GPT-4 |
+| **Speed** | Fast (Gemini) / Robust (Azure) | Robust |
 | **Cost** | Free tier (Gemini) / Pay-per-use (Azure) | Pay-per-use |
-| **Embeddings** | Gemini (3072-dim) / Azure (1536-dim) | text-embedding-ada-002 (1536-dim) |
+| **Embeddings** | Gemini embedding-001 (768-dim) OR Azure text-embedding-ada-002 (1536-dim) | text-embedding-ada-002 (1536-dim) |
 | **Vector Store** | FAISS (local file, per-provider: `faiss_index_gemini`, `faiss_index_azure`) | Azure AI Search (cloud) |
-| **Setup** | Simple API key (Run `setup_vectorstore.py` for each provider) | Azure resources required |
+| **Setup** | Simple API key for Gemini OR Azure resources for Azure | Azure resources required |
+| **Configuration** | Set `LLM_PROVIDER=gemini` or `LLM_PROVIDER=azure` in `.env` | `ENVIRONMENT=production` (forces Azure) |
 
 **LLM Client** (`app/llm/llm_client.py`)
 - Unified interface for both providers

@@ -650,7 +650,7 @@ We welcome contributions in these areas:
 This is a portfolio/assignment project. For questions or suggestions:
 1. Open an issue
 2. Submit a pull request
-3. Contact: [your-email@example.com]
+3. Contact: devopsexpertlearning@gmail.com
 
 ---
 
